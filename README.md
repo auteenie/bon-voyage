@@ -1,4 +1,4 @@
-# Bon Voyage!
+# ***Bon Voyage!***
 
 Created by Autumn Lydon (@autumnlydon) and Athena Chang (@AthenaC).
 
@@ -6,7 +6,7 @@ Created by Autumn Lydon (@autumnlydon) and Athena Chang (@AthenaC).
 
 Our application, ***Bon Voyage!*** is for girlies who wanna travel the world. It allows users to browse + collect passport stamps, learn about countries, and plan itineraries. Users will enjoy keeping track of places visited and planning what their next destination will be.
 
-## API & React Router
+## 👾 API & React Router
 
 This application will use the **REST Countries** API. Below are the documentation and specific endpoints we intend to use and the front-end pages that will use them.
 
@@ -68,7 +68,7 @@ To ensure that we can complete all core features of the application in 1 week, w
 - [ ] Ticket description and due date
 - [ ] Ticket description and due date
 
-## Wireframes of each page in your application
+## 🖼️ Wireframes of each page in your application
 
 Below, you can find wireframes for our project. Each wireframe shows a different page of our application as well as the key components of the application. Details such as specific text values or images are intentionally not included:
 
