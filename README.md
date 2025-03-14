@@ -28,15 +28,15 @@ This application will use the **REST Countries** API. Below are the documentatio
 The application will feature the following frontend routes and core features:
 
 * On the `/account` page, users can keep track of the places they've traveled by collecting stamps.
-* On the `/map` page, users can view the places they've been on a map
+* On the `/map` page, users can view the places they've been on a map.
 * On the `/account/[country]` page, users can view more information about the country.
 
 ## 🤔 Stretch User Stories
 
 If time permits, the following stretch features will be implemented in order of priority:
 
-* Users will be able to view different countries by zooming in
-* Users will be able to view other users’ recommendations on the map
+* Users will be able to view different countries by zooming in.
+* Users will be able to view other users’ recommendations on the map.
 * Users will be able to collect more countries’ stamps.
 
 ## 📆 Timeline for reaching MVP in 1 week
@@ -44,29 +44,29 @@ If time permits, the following stretch features will be implemented in order of 
 To ensure that we can complete all core features of the application in 1 week, we will aim to complete tasks according to the following timeline:
 
 **Day 1**
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
+- [ ] Creating project template and foundation for the repository due March 14, 2025
+- [ ] Creating the React structure of the page due March 15, 2025
+- [ ] Create wireframe due date March 15, 2025
 
 **Day 2**
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
+- [ ] Create three API fetch functions due March 15, 2025
+- [ ] Create three components due March 16, 2025
+- [ ] Create React Router due March 16, 2025
 
 **Day 3** (MVP due by the end of the day)
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
+- [ ] Add styling due March 17, 2025
+- [ ] Make the rendering works due March 17, 2025
+- [ ] Implementing dark mode due March 17, 2025
 
 **Day 4**
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
+- [ ] Add any stretch features due March 19, 2025
+- [ ] Debugging due March 19, 2025
+- [ ] Finalizing styling and dark mode due March 19, 2025
 
 **Day 5**
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
+- [ ] Deploy GitHub page of the project due March 20, 2025
+- [ ] Agile Reflection due March 20, 2025
+- [ ] Creating presentation slides due March 20, 2025
 
 ## 🖼️ Wireframes of each page in your application
 
