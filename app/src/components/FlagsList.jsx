@@ -1,6 +1,7 @@
 import { getAllFlags } from "../adapters/adapters";
 import { useState, useEffect } from "react";
 import CouldNotLoadData from "../pages/CouldNotLoadData";
+import FlagCard from "./FlagCard";
 
 const FlagsList = () => {
   const [flags, setFlags] = useState([]);

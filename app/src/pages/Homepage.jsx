@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
+import Button from "../components/Button";
 
 const Homepage = () => {
   const [activeForm, setActiveForm] = useState(null);
