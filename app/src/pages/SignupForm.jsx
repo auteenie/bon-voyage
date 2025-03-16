@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Form from "../components/Form";
 
 const SignupForm = () => {
+  const navigate = useNavigate();
+
   const [signupData, setSignupData] = useState({
     firstName: "",
     lastName: "",
@@ -20,6 +23,7 @@ const SignupForm = () => {
     const newUserData = { ...signupData, ...data };
     localStorage.setItem("userData", JSON.stringify(newUserData));
     console.log(`User data saved: ${newUserData}`);
+    navigate("/pages/PassportPage");
   };
 
   return (

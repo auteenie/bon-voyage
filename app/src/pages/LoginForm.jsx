@@ -13,7 +13,7 @@ const LoginForm = () => {
       data.password === savedData.password
     ) {
       console.log("Login successfully");
-      navigate("/profile");
+      navigate("/pages/PassportPage");
     } else {
       console.log("Invalid credentials");
       alert("Invalid username or password");
