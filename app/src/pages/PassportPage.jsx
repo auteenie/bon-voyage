@@ -5,21 +5,15 @@ const PassportPage = () => {
   const navigate = useNavigate();
   const userData = JSON.parse(localStorage.getItem("userData"));
 
-  const handleLogout = () => {
-    localStorage.clear();
-    navigate("/");
-  };
-
-  const handleViewCountries = () => {
-    navigate("/pages/CountriesPage");
-  };
-
   return (
     <div>
       <div>
-        <Button name="View Countries" onClick={handleViewCountries} />
+        <Button
+          name="View Countries"
+          onClick={() => navigate("/pages/CountriesPage")}
+        />
         <h1>Welcome, {userData?.firstName}!</h1>
-        <Button name="Log Out" onClick={handleLogout} />
+        <Button name="Log Out" />
       </div>
       <img
         src={`/assets/${userData?.country}.png`}
