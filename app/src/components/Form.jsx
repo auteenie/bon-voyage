@@ -18,7 +18,7 @@ const Form = ({ children, name, onSubmit }) => {
     <form onSubmit={handleFormSubmit}>
       {children}
 
-      <label>Username</label>
+      <label>Username: </label>
       <input
         type="text"
         name="username"
@@ -28,7 +28,7 @@ const Form = ({ children, name, onSubmit }) => {
         required
       />
 
-      <label>Password</label>
+      <label>Password: </label>
       <input
         type="password"
         name="password"

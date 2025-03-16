@@ -2,4 +2,4 @@ const PassportPage = () => {
     return ();
 }
 
-export default PassportPage
+export default PassportPage;
