@@ -73,6 +73,8 @@ To ensure that we can complete all core features of the application in 1 week, w
 
 Below, you can find wireframes for our project. Each wireframe shows a different page of our application as well as the key components of the application. Details such as specific text values or images are intentionally not included:
 
-[Wireframe for page 1](add link here)
+[Excalidraw Wireframe](https://app.excalidraw.com/l/Q3Z0MQduNI/9cEVx7a1Ast)
+![Excalidraw Wireframe](https://github.com/user-attachments/assets/8525445d-fa47-4cda-ba45-4b0a006d07b2)
 
-[Wireframe for page 2](add link here)
+
+[Figma Wireframe](add link here)
