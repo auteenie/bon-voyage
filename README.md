@@ -1,6 +1,6 @@
 # ***Bon Voyage!***
 
-Created by Autumn Lydon (@autumnlydon) and Athena Chang (@AthenaC).
+Created by [Autumn Lydon](https://github.com/autumnlydon) and [Athena Chang](https://github.com/AthenaC).
 
 ## 🚀 Mission statement
 
