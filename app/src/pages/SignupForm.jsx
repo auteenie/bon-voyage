@@ -1,4 +1,4 @@
-const SignupPage = () => {
+const SignupForm = () => {
   return (
     <Form name={"Sign Up"}>
       <label>First Name</label>

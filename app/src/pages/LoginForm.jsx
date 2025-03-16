@@ -1,4 +1,4 @@
-const LoginPage = () => {
+const LoginForm = () => {
   return <Form name={"Log In"} />;
 };
 
