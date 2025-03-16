@@ -10,10 +10,14 @@ const PassportPage = () => {
     navigate("/");
   };
 
+  const handleViewCountries = () => {
+    navigate("/pages/CountriesPage");
+  };
+
   return (
     <div>
       <div>
-        <Button name="View Countries" />
+        <Button name="View Countries" onClick={handleViewCountries} />
         <h1>Welcome, {userData?.firstName}!</h1>
         <Button name="Log Out" onClick={handleLogout} />
       </div>
