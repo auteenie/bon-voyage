@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const Button = ({ name, onClick }) => {
+const Button = ({ name, onSubmit, onClick }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -8,11 +8,16 @@ const Button = ({ name, onClick }) => {
     navigate("/");
   };
 
+  const handleClick = () => {
+    if (name === "Log Out") {
+      handleLogout();
+    } else if (onClick) {
+      onClick();
+    }
+  };
+
   return (
-    <button
-      type="submit"
-      onClick={onClick || (name === "Log Out" && handleLogout)}
-    >
+    <button type="submit" onClick={onSubmit || handleClick}>
       {name}
     </button>
   );
