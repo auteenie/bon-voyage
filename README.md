@@ -1,4 +1,4 @@
-# ***Bon Voyage!***
+# ***Bon Voyage!*** ✈️
 
 Created by [Autumn Lydon](https://github.com/autumnlydon) and [Athena Chang](https://github.com/AthenaC).
 
