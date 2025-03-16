@@ -4,7 +4,7 @@ Created by Autumn Lydon (@autumnlydon) and Athena Chang (@AthenaC).
 
 ## 🚀 Mission statement
 
-Our application, ***Bon Voyage!*** is for explorers who are eager to see the world. It allows users to collect digital passport stamps, discover new countries, and plan future adventures. With Bon Voyage, travelers can track where they've been and dream up their next destination.
+Our application, ***Bon Voyage!*** is for explorers who are eager to see the world. It allows users to collect digital passport stamps, discover new countries, and plan future adventures. With *Bon Voyage!*, travelers can track where they've been and dream up their next destination.
 
 ## 👾 API & React Router
 
