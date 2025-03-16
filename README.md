@@ -27,18 +27,21 @@ This application will use the **REST Countries** API. Below are the documentatio
 
 The application will feature the following frontend routes and core features:
 
-* On the `/account` page, users can keep track of the places they've traveled by collecting stamps.
-* On the `/map` page, users can view the places they've been on a map.
-* On the `/account/[country]` page, users can view more information about the country.
+* On the `/` (home) page, users can sign up or log in to their account.
+* On the `/passport` page, users can keep track of the places they've traveled by collecting stamps in their digital passport.
+* On the `/countries` page, users can view a list of all the countries and their flags by clicking on the card.
+  * When the modal pops up, users can view more information about the country.
+* On the `/passport/[country]` page, users can view their adventures in the countries they visited by clicking on the colorized stamps.
+  * When the modal pops up, on the same page, by clicking on the country's name, users can view more information about the country.
 
 ## 🤔 Stretch User Stories
 
 If time permits, the following stretch features will be implemented in order of priority:
 
-* Users will be able to view different countries by zooming in.
+* Users will be able to view the flat global map with hover effect displaying the name of the country.
+* Users will be able to see the visa requirements between two countries.
 * Users will be able to view other users’ recommendations on the map.
 * Users will be able to collect more countries’ stamps.
-* Users will be able to see the visa requirements between two countries.
 
 ## 📆 Timeline for reaching MVP in 1 week
 
@@ -74,7 +77,7 @@ To ensure that we can complete all core features of the application in 1 week, w
 Below, you can find wireframes for our project. Each wireframe shows a different page of our application as well as the key components of the application. Details such as specific text values or images are intentionally not included:
 
 ### [Excalidraw Wireframe](https://app.excalidraw.com/l/Q3Z0MQduNI/9cEVx7a1Ast)
-![Excalidraw Wireframe](https://github.com/user-attachments/assets/8525445d-fa47-4cda-ba45-4b0a006d07b2)
+![Excalidraw Wireframe](https://github.com/user-attachments/assets/ac1650a0-955e-41e7-a2a1-a2648f0b23c2)
 
 
 [Figma Wireframe](add link here)
