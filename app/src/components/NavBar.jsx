@@ -5,7 +5,12 @@ const NavBar = () => {
   return (
     <nav>
       <ul>
-        <li></li>
+        <li>
+          <Button name="View Countries" />
+        </li>
+        <li>
+          <Button name="Log Out" onClick={() => localStorage.clear()} />
+        </li>
       </ul>
     </nav>
   );

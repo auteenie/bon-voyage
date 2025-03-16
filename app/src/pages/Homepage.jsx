@@ -30,9 +30,11 @@ const Homepage = () => {
       </nav>
 
       <div>
-        <p>Keep track of where you've been.</p>
-        <p>Plan where you'll go.</p>
-        <p>And bon voyage! ✈️</p>
+        <p>Keep track of where you have been.</p>
+        <p>Plan where you will go.</p>
+        <p>
+          And <em>bon voyage!</em> ✈️
+        </p>
       </div>
 
       <div>

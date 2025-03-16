@@ -1,5 +1,5 @@
-const Button = ({ name, onClick }) => {
-  return <button onClick={onClick}>{name}</button>;
+const Button = ({ name }) => {
+  return <button type="submit">{name}</button>;
 };
 
 export default Button;

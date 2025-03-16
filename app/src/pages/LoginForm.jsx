@@ -12,8 +12,10 @@ const LoginForm = () => {
       data.username === savedData.username &&
       data.password === savedData.password
     ) {
+      console.log("Login successfully");
       navigate("/profile");
     } else {
+      console.log("Invalid credentials");
       alert("Invalid username or password");
     }
   };
