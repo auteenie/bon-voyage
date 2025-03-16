@@ -1,6 +1,13 @@
+import Form from "../components/Form";
+
 const SignupForm = () => {
+  const handleSubmit = (data) => {
+    localStorage.setItem("userData", JSON.stringify(data));
+    console.log(`User data saved: ${data}`);
+  };
+
   return (
-    <Form name={"Sign Up"}>
+    <Form name={"Sign Up"} onSubmit={handleSubmit}>
       <label>First Name</label>
       <input type="text" placeholder="First Name" />
 
@@ -13,4 +20,4 @@ const SignupForm = () => {
   );
 };
 
-export default SignupPage;
+export default SignupForm;

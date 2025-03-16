@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
@@ -10,11 +11,16 @@ const Homepage = () => {
     setActiveForm(formType);
   };
 
+  const handleSubmit = (data) => {
+    localStorage.setItem("userData", JSON.stringify(data));
+    console.log(`Data saved to localStorage: ${data}`);
+  };
+
   return (
     <div>
       <nav>
         <ul>
-          <li>Bon Voyage!</li>
+          <Link to="/">Bon Voyage!</Link>
           <li>
             <Button name={"Login"} onClick={() => handleClick("login")} />
           </li>
@@ -31,8 +37,8 @@ const Homepage = () => {
       </div>
 
       <div>
-        {activeForm === "login" && <LoginForm />}
-        {activeForm === "signup" && <SignupForm />}
+        {activeForm === "login" && <LoginForm onSubmit={handleSubmit} />}
+        {activeForm === "signup" && <SignupForm onSubmit={handleSubmit} />}
         {!activeForm && (
           <img src="" alt="passport cover" className="passport-home" />
         )}
