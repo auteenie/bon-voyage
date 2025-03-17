@@ -1,6 +1,8 @@
 import Button from "./Button";
 
 const CountryModal = ({
+  isOpen,
+  onClose,
   countryName,
   capital,
   subregion,
@@ -11,9 +13,11 @@ const CountryModal = ({
   callingCode,
   flag,
 }) => {
+  if (!isOpen) return null;
+
   return (
-    <dialog className="modal">
-      <Button name="❌" />
+    <dialog className="country-modal-overlay">
+      <Button name="❌" onClick={onClose} />
 
       <h1>{countryName}</h1>
 
