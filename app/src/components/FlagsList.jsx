@@ -30,6 +30,7 @@ const FlagsList = ({ onClick }) => {
               src={flag?.flags?.png}
               alt={flag?.flags?.alt || "No Flag Available"}
               onClick={() => onClick(flag)}
+              flag={flag}
             />
           ))
         ) : (

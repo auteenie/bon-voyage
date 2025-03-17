@@ -1,15 +1,8 @@
 import Button from "./Button";
 
 const CountryModal = ({ isOpen, onClose, country }) => {
+  console.log('Modal country data:', country); // Debug the data structure
   if (!isOpen || !country) return null;
-
-  // Destructure the country data safely
-  const {
-    name = {},          // Handle nested name object
-    flags = {},         // Handle nested flags object
-    capital = [],       // Capital is usually an array
-    region = '',
-  } = country;
 
   return (
     <dialog 
@@ -21,18 +14,24 @@ const CountryModal = ({ isOpen, onClose, country }) => {
     >
       <div className="modal-content">
         <Button name="❌" onClick={onClose} />
-        
-        {/* Safely access nested properties */}
-        <h1>{name.common || 'Country Name Not Available'}</h1>
+        <h1>{country.name?.common}</h1>
         
         <ul>
-          <li>Capital: {capital[0] || 'Not Available'}</li>
-          <li>Region: {region || 'Not Available'}</li>
+          <li>Capital: {country.capital?.[0] || 'Not Available'}</li>
+          <li>Region: {country.region || 'Not Available'}</li>
+          <li>Subregion: {country.subregion || 'Not Available'}</li>
+          <li>Languages: {Object.values(country.languages || {}).join(', ') || 'Not Available'}</li>
+          <li>Currency: {Object.values(country.currencies || {}).map(curr => `${curr.name} (${curr.symbol})`).join(', ') || 'Not Available'}</li>
+          <li>Population: {country.population || 'Not Available'}</li>
+          <li>Area: {country.area || 'Not Available'} square kilometers</li>
+          <li>Timezones: {country.timezones[0] || 'Not Available'}</li>
+          <li>Map: <a href={`https://www.google.com/maps/search/${country.name?.common}`} target="_blank" rel="noopener noreferrer">View on Google Maps</a></li>
+          
         </ul>
 
         <img 
-          src={flags.png} 
-          alt={flags.alt || `Flag of ${name.common}`} 
+          src={country.flags?.png} 
+          alt={country.flags?.alt || `Flag of ${country.name?.common}`} 
         />
       </div>
     </dialog>

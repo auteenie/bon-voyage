@@ -8,7 +8,7 @@ export const countries = async () => {
 
 export const getAllFlags = async () => {
   const [data, error] = await handleFetch(
-    'https://restcountries.com/v3.1/all?fields=name,flags,capital,region'
+    'https://restcountries.com/v3.1/independent?status=true'
   );
   
   if (error) {
