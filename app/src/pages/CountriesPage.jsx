@@ -1,8 +1,8 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import FlagsList from "../components/FlagsList";
 import NavBar from "../components/NavBar";
-import { useState } from "react";
 import CountryModal from "../components/CountryModal";
 
 const CountriesPage = () => {
@@ -47,7 +47,7 @@ const CountriesPage = () => {
 
       <section className="flags-list">
         <FlagsList onClick={openModal} />
-        <CountryModal isOpen={isOpen} onClose={closeModal} />
+        <CountryModal isOpen={isOpen} onClose={closeModal} country={name} />
       </section>
     </main>
   );
