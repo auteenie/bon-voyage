@@ -20,7 +20,7 @@ const Homepage = () => {
     <main className="home">
       <nav className="home-nav">
         <ul>
-          <li>
+          <li className="appName">
             <Link to="/">Bon Voyage!</Link>
           </li>
           <li>
