@@ -6,20 +6,25 @@ const PassportPage = () => {
   const userData = JSON.parse(localStorage.getItem("userData"));
 
   return (
-    <div>
-      <div>
+    <main className="profile">
+      <nav className="profile-nav">
         <Button
           name="View Countries"
           onClick={() => navigate("/pages/CountriesPage")}
         />
+
         <h1>Welcome, {userData?.firstName}!</h1>
+
         <Button name="Log Out" />
-      </div>
-      <img
-        src={`/assets/${userData?.country}.png`}
-        alt={`${userData?.country} Passport Cover`}
-      />
-    </div>
+      </nav>
+
+      <section className="flipbook">
+        <img
+          src={`/assets/${userData?.country}.png`}
+          alt={`${userData?.country} Passport Cover`}
+        />
+      </section>
+    </main>
   );
 };
 
