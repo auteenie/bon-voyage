@@ -14,7 +14,11 @@ const CountriesPage = () => {
         />
 
         <h1>List of Countries</h1>
-        <input type="text" name="search" />
+        <input
+          type="text"
+          name="search"
+          placeholder="Search for a Country..."
+        />
 
         <Button name="Log Out" />
       </div>

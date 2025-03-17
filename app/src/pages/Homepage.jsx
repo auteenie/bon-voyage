@@ -18,14 +18,14 @@ const Homepage = () => {
 
   return (
     <div>
-      <nav>
+      <nav className="nav">
         <ul>
           <Link to="/">Bon Voyage!</Link>
           <li>
             <Button name={"Login"} onClick={() => handleClick("login")} />
           </li>
           <li>
-            <Button name={"Signup"} onClick={() => handleClick("signup")} />
+            <Button name={"Sign Up"} onClick={() => handleClick("signup")} />
           </li>
         </ul>
       </nav>

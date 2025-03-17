@@ -15,23 +15,37 @@ const Form = ({ children, name, onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleFormSubmit}>
+    <form className="form" onSubmit={handleFormSubmit}>
       {children}
 
-      <label>Username: </label>
+      <label
+        className={name === "Sign Up" ? "signup" : "login"}
+        aria-label="username"
+      >
+        Username:{" "}
+      </label>
       <input
         type="text"
         name="username"
+        className={name === "Sign Up" ? "signup" : "login"}
+        aria-label="username"
         placeholder="Username"
         value={formData.username}
         onChange={handleInputChange}
         required
       />
 
-      <label>Password: </label>
+      <label
+        className={name === "Sign Up" ? "signup" : "login"}
+        aria-label="password"
+      >
+        Password:{" "}
+      </label>
       <input
         type="password"
         name="password"
+        className={name === "Sign Up" ? "signup" : "login"}
+        aria-label="password"
         placeholder="Password"
         value={formData.password}
         onChange={handleInputChange}

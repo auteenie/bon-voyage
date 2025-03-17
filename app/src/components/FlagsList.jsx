@@ -9,8 +9,12 @@ const FlagsList = () => {
 
   useEffect(() => {
     const fetchFlags = async () => {
-      const data = await getAllFlags();
-      data ? setFlags(data) : setError(<CouldNotLoadData />);
+      const [data, error] = await getAllFlags();
+      if (error) {
+        setError(<CouldNotLoadData />);
+      } else {
+        setFlags(data);
+      }
     };
     fetchFlags();
   }, []);
@@ -18,13 +22,17 @@ const FlagsList = () => {
   return (
     <div>
       {error ||
-        flags.map((flag) => (
-          <FlagCard
-            key={flag.name.common}
-            name={flag.name.common}
-            src={flag.flags.png}
-            alt={flag.flags.alt}
-          />
+        (flags.length ? (
+          flags.map((flag, i) => (
+            <FlagCard
+              key={i}
+              name={flag?.name?.common || "Unknown Country"}
+              src={flag?.flags?.png}
+              alt={flag?.flags?.alt || "No Flag Available"}
+            />
+          ))
+        ) : (
+          <p>Loading...</p>
         ))}
     </div>
   );

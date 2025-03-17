@@ -28,40 +28,56 @@ const SignupForm = () => {
 
   return (
     <Form name={"Sign Up"} onSubmit={handleSubmit}>
-      <label>First Name: </label>
+      <label className="signup" aria-label="first name">
+        First Name:{" "}
+      </label>
       <input
         type="text"
         name="firstName"
+        className="signup"
+        aria-label="first name"
         placeholder="First Name"
         value={signupData.firstName}
         onChange={handleInputChange}
         required
       />
 
-      <label>Last Name: </label>
+      <label className="signup" aria-label="last name">
+        Last Name:{" "}
+      </label>
       <input
         type="text"
         name="lastName"
+        className="signup"
+        aria-label="last name"
         placeholder="Last Name"
         value={signupData.lastName}
         onChange={handleInputChange}
         required
       />
 
-      <label>Email Address: </label>
+      <label className="signup" aria-label="email">
+        Email Address:{" "}
+      </label>
       <input
         type="email"
         name="email"
+        className="signup"
+        aria-label="email"
         placeholder="Email Address"
         value={signupData.email}
         onChange={handleInputChange}
         required
       />
 
-      <label>Origin Country: </label>
+      <label className="signup" aria-label="origin country">
+        Origin Country:{" "}
+      </label>
       <input
         type="text"
         name="country"
+        className="signup"
+        aria-label="origin country"
         placeholder="Origin Country"
         value={signupData.country}
         onChange={handleInputChange}
