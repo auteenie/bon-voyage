@@ -23,12 +23,14 @@ const CountriesPage = () => {
         <input
           type="text"
           name="search"
-          className="search-bar"
+          className="search"
           placeholder="Search for a Country..."
         />
 
-        <select>
-          <option></option>
+        <select className="filter">
+          <option value="">All</option>
+          <option value="Countries A-Z">Countries A-Z</option>
+          <option value="Region">Region</option>
         </select>
       </div>
 

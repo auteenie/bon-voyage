@@ -6,6 +6,7 @@ const NavBar = ({ children, className }) => {
     <nav className={className}>
       <ul>
         {children}
+
         <li>
           <Button name="Log Out" />
         </li>
