@@ -34,7 +34,7 @@ const Form = ({ children, name, onSubmit }) => {
         onChange={handleInputChange}
         required
       />
-
+    
       <label
         className={name === "Sign Up" ? "signup" : "login"}
         aria-label="password"
@@ -51,7 +51,7 @@ const Form = ({ children, name, onSubmit }) => {
         onChange={handleInputChange}
         required
       />
-
+    
       <Button name={name} />
     </form>
   );

@@ -19,34 +19,34 @@ const Homepage = () => {
   return (
     <main className="home">
       <nav className="home-nav">
-        <ul>
-          <li className="appName">
-            <Link to="/">Bon Voyage!</Link>
-          </li>
-          <li>
-            <Button name={"Login"} onClick={() => handleClick("login")} />
-          </li>
-          <li>
-            <Button name={"Sign Up"} onClick={() => handleClick("signup")} />
-          </li>
-        </ul>
+        <div className="nav-left">
+          <Link to="/" className="appName">bon voyage</Link>
+        </div>
+        <div className="nav-right">
+          <Button name={"Login"} onClick={() => handleClick("login")} />
+          <Button name={"Sign Up"} onClick={() => handleClick("signup")} />
+        </div>
       </nav>
 
-      <div className="home-intro">
-        <p>Keep track of where you have been.</p>
-        <p>Plan where you will go.</p>
-        <p>
-          And <em>bon voyage!</em> ✈️
-        </p>
-      </div>
+      <div className="home-content">
+        <section className="home-intro">
+          <p>Keep track of where you have been.</p>
+          <p>Plan where you will go.</p>
+          <p>And <em>bon voyage!</em> ✈️</p>
+        </section>
 
-      <section className="passport-form">
-        {activeForm === "login" && <LoginForm onSubmit={handleSubmit} />}
-        {activeForm === "signup" && <SignupForm onSubmit={handleSubmit} />}
-        {!activeForm && (
-          <img src="" alt="passport cover" className="passport-home" />
-        )}
-      </section>
+        <div className="passport-section">
+          {activeForm === "login" && <LoginForm onSubmit={handleSubmit} />}
+          {activeForm === "signup" && <SignupForm onSubmit={handleSubmit} />}
+          {!activeForm && (
+            <img
+              src="/passport-cover.png"
+              alt="passport cover"
+              className="passport-cover"
+            />
+          )}
+        </div>
+      </div>
     </main>
   );
 };

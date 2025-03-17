@@ -55,7 +55,7 @@ const SignupForm = () => {
         onChange={handleInputChange}
         required
       />
-
+  
       <label className="signup" aria-label="email">
         Email Address:{" "}
       </label>
@@ -69,7 +69,7 @@ const SignupForm = () => {
         onChange={handleInputChange}
         required
       />
-
+    
       <label className="signup" aria-label="origin country">
         Origin Country:{" "}
       </label>
@@ -81,7 +81,9 @@ const SignupForm = () => {
         placeholder="Origin Country"
         value={signupData.country}
         onChange={handleInputChange}
+        required
       />
+   
     </Form>
   );
 };
