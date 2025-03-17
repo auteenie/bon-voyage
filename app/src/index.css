@@ -35,16 +35,17 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  padding: 0.15em 1.2em;
+  font-size: 1.6em;
   font-weight: 500;
   font-family: inherit;
   color: #f8f5ec;
   background-color: #c9a66b;
   cursor: pointer;
   transition: border-color 0.25s;
+
 }
 /* button:hover {
   border-color: #646cff;
@@ -133,7 +134,7 @@ nav li {
 }
 
 .appName {
-  font-size: 3rem;
+  font-size: 4rem;
   font-style: italic;
   margin: 0;
 }
@@ -141,5 +142,31 @@ nav li {
 .form {
   display: flex;
   flex-direction: column;
-  gap: 7px;  /* This creates space between each form element */
+  gap: 7px;  
 }
+
+.form input {
+  padding: 8px;    
+  margin-bottom: .5em;
+  font-size: 1.6em;
+  border-radius: 8px;
+  border: 1px solid #c9a66b;
+  width: 150%; 
+  max-width: 400px;    
+  color: #0b1f3a;
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  outline-color: #0b1f3a;
+  letter-spacing: 1.5px; 
+}
+
+.form label {
+  font-size: 1.6em;
+  margin-bottom: 5px;
+}
+
+.form input::placeholder {
+  color: #999; 
+  font-size: 1;
+}
+
