@@ -18,7 +18,7 @@ const Homepage = () => {
 
   return (
     <main className="home">
-      <nav>
+      <nav className="home-nav">
         <ul>
           <li>
             <Link to="/">Bon Voyage!</Link>
@@ -32,7 +32,7 @@ const Homepage = () => {
         </ul>
       </nav>
 
-      <div>
+      <div className="home-intro">
         <p>Keep track of where you have been.</p>
         <p>Plan where you will go.</p>
         <p>
@@ -40,7 +40,7 @@ const Homepage = () => {
         </p>
       </div>
 
-      <section className="home">
+      <section className="passport-form">
         {activeForm === "login" && <LoginForm onSubmit={handleSubmit} />}
         {activeForm === "signup" && <SignupForm onSubmit={handleSubmit} />}
         {!activeForm && (
