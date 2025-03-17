@@ -17,10 +17,12 @@ const Homepage = () => {
   };
 
   return (
-    <div>
-      <nav className="nav">
+    <main className="home">
+      <nav>
         <ul>
-          <Link to="/">Bon Voyage!</Link>
+          <li>
+            <Link to="/">Bon Voyage!</Link>
+          </li>
           <li>
             <Button name={"Login"} onClick={() => handleClick("login")} />
           </li>
@@ -38,14 +40,14 @@ const Homepage = () => {
         </p>
       </div>
 
-      <div>
+      <section className="home">
         {activeForm === "login" && <LoginForm onSubmit={handleSubmit} />}
         {activeForm === "signup" && <SignupForm onSubmit={handleSubmit} />}
         {!activeForm && (
           <img src="" alt="passport cover" className="passport-home" />
         )}
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 
