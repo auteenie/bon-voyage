@@ -8,13 +8,16 @@ import CountryModal from "../components/CountryModal";
 const CountriesPage = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState(null);
 
-  const openModal = () => {
+  const openModal = (country) => {
+    setSelectedCountry(country);
     setIsOpen(true);
   };
 
   const closeModal = () => {
     setIsOpen(false);
+    setSelectedCountry(null);
   };
 
   return (
@@ -47,7 +50,7 @@ const CountriesPage = () => {
 
       <section className="flags-list">
         <FlagsList onClick={openModal} />
-        <CountryModal isOpen={isOpen} onClose={closeModal} country={name} />
+        <CountryModal isOpen={isOpen} onClose={closeModal} country={selectedCountry} />
       </section>
     </main>
   );

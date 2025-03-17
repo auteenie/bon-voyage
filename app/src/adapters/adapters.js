@@ -7,9 +7,14 @@ export const countries = async () => {
 };
 
 export const getAllFlags = async () => {
-  const data = await handleFetch(
-    `https://restcountries.com/v3.1/name/all?fields=name,flags`
+  const [data, error] = await handleFetch(
+    'https://restcountries.com/v3.1/all?fields=name,flags,capital,region'
   );
-  console.log(data);
-  return data;
+  
+  if (error) {
+    console.error('Error fetching flags:', error);
+    return [null, error];
+  }
+  
+  return [data, null];
 };

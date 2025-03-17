@@ -1,27 +1,40 @@
 import Button from "./Button";
 
 const CountryModal = ({ isOpen, onClose, country }) => {
-  if (!isOpen) return null;
+  if (!isOpen || !country) return null;
+
+  // Destructure the country data safely
+  const {
+    name = {},          // Handle nested name object
+    flags = {},         // Handle nested flags object
+    capital = [],       // Capital is usually an array
+    region = '',
+  } = country;
 
   return (
-    <dialog className="country-modal-overlay">
-      <Button name="❌" onClick={onClose} />
+    <dialog 
+      open={isOpen}
+      className="country-modal-overlay"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+    >
+      <div className="modal-content">
+        <Button name="❌" onClick={onClose} />
+        
+        {/* Safely access nested properties */}
+        <h1>{name.common || 'Country Name Not Available'}</h1>
+        
+        <ul>
+          <li>Capital: {capital[0] || 'Not Available'}</li>
+          <li>Region: {region || 'Not Available'}</li>
+        </ul>
 
-      <h1>{country.name}</h1>
-
-      <ul>
-        <li>Capital: {country.capital}</li>
-        <li>Subregion: {country.subregion}</li>
-        <li>Region: {country.region}</li>
-        <li>Continent: {country.continent}</li>
-        <li>Currency: {country.currency}</li>
-        <li>Language: {country.language}</li>
-        <li>Calling Code: {country.callingCode}</li>
-      </ul>
-
-      <img src={country.flag.png} alt={country.flag.alt} />
-
-      <iframe src="" alt="Google Maps"></iframe>
+        <img 
+          src={flags.png} 
+          alt={flags.alt || `Flag of ${name.common}`} 
+        />
+      </div>
     </dialog>
   );
 };

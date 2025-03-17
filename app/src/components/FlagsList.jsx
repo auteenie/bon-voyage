@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import CouldNotLoadData from "../pages/CouldNotLoadData";
 import FlagCard from "./FlagCard";
 
-const FlagsList = () => {
+const FlagsList = ({ onClick }) => {
   const [flags, setFlags] = useState([]);
   const [error, setError] = useState(null);
 
@@ -29,6 +29,7 @@ const FlagsList = () => {
               name={flag?.name?.common || "Unknown Country"}
               src={flag?.flags?.png}
               alt={flag?.flags?.alt || "No Flag Available"}
+              onClick={() => onClick(flag)}
             />
           ))
         ) : (
