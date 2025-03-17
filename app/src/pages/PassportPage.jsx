@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
+import NavBar from "../components/NavBar";
 
 const PassportPage = () => {
   const navigate = useNavigate();
@@ -7,16 +8,16 @@ const PassportPage = () => {
 
   return (
     <main className="profile">
-      <nav className="profile-nav">
-        <Button
-          name="View Countries"
-          onClick={() => navigate("/pages/CountriesPage")}
-        />
+      <NavBar className="profile-nav">
+        <li>
+          <Button
+            name="View Countries"
+            onClick={() => navigate("/pages/CountriesPage")}
+          />
+        </li>
 
         <h1>Welcome, {userData?.firstName}!</h1>
-
-        <Button name="Log Out" />
-      </nav>
+      </NavBar>
 
       <section className="flipbook">
         <img

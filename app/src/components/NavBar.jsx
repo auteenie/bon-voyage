@@ -1,15 +1,13 @@
 import { Link } from "react-router-dom";
 import Button from "./Button";
 
-const NavBar = () => {
+const NavBar = ({ children, className }) => {
   return (
-    <nav>
+    <nav className={className}>
       <ul>
+        {children}
         <li>
-          <Button name="View Countries" />
-        </li>
-        <li>
-          <Button name="Log Out" onClick={() => localStorage.clear()} />
+          <Button name="Log Out" />
         </li>
       </ul>
     </nav>
