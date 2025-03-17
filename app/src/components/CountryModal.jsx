@@ -15,7 +15,7 @@ const CountryModal = ({ isOpen, onClose, country }) => {
       <div className="modal-content">
         <Button name="❌" onClick={onClose} />
         <h1>{country.name?.common}</h1>
-        
+        <div className="modal-text">
         <ul>
           <li>Capital: {country.capital?.[0] || 'Not Available'}</li>
           <li>Region: {country.region || 'Not Available'}</li>
@@ -33,6 +33,7 @@ const CountryModal = ({ isOpen, onClose, country }) => {
           src={country.flags?.png} 
           alt={country.flags?.alt || `Flag of ${country.name?.common}`} 
         />
+        </div>
       </div>
     </dialog>
   );
