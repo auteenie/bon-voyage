@@ -1,8 +1,8 @@
 const FlagCard = ({ name, src, alt }) => {
   return (
-    <div>
-      <h3>{name}</h3>
+    <div className="flag-card">
       <img src={src} alt={alt} />
+      <h3>{name}</h3>
     </div>
   );
 };
