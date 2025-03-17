@@ -1,6 +1,6 @@
 import Button from "./Button";
 
-const Modal = ({
+const CountryModal = ({
   countryName,
   capital,
   subregion,
@@ -34,4 +34,4 @@ const Modal = ({
   );
 };
 
-export default Modal;
+export default CountryModal;
