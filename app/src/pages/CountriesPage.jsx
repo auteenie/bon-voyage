@@ -36,7 +36,6 @@ const CountriesPage = () => {
       <div className="search-filter">
         <h1>List of Countries</h1>
         <SearchBar />
-
         <Filter />
       </div>
 
