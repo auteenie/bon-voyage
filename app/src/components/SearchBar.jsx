@@ -1,3 +1,6 @@
+import { useState, useEffect } from "react";
+import { getAllFlags } from "../adapters/adapters";
+
 const SearchBar = () => {
   return (
     <input
