@@ -78,7 +78,7 @@ To ensure that we can complete all core features of the application in 1 week, w
 Below, you can find wireframes for our project. Each wireframe shows a different page of our application as well as the key components of the application. Details such as specific text values or images are intentionally not included:
 
 ### [Excalidraw Wireframe](https://app.excalidraw.com/l/Q3Z0MQduNI/9cEVx7a1Ast)
-![Excalidraw Wireframe](https://github.com/user-attachments/assets/ac1650a0-955e-41e7-a2a1-a2648f0b23c2)
+![Excalidraw Wireframe](https://github.com/user-attachments/assets/00c004f2-7e41-4498-9433-e79f18a29b12)
 
 
 ### [Figma Wireframe](https://www.figma.com/design/BTh6vTzpz1k72PizFYyjRI/passport-app?node-id=0-1&t=yOxzkEW7VZZsdMz7-1)
