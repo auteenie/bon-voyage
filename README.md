@@ -10,16 +10,16 @@ Our application, ***Bon Voyage!*** is for explorers who are eager to see the wor
 
 This application will use the **REST Countries** API. Below are the documentation and specific endpoints we intend to use and the front-end pages that will use them.
 
-- Link to API documentation: [REST Countries API](https://restcountries.com/)
+- Link to API documentation: [REST Countries API](https://restcountries.com/) & [Passport Visa API](https://github.com/nickypangers/passport-visa-api)
 - API endpoint #1: https://restcountries.com/v3.1/independent?status=true
-  - This endpoint is retrieves data on all the independent countries.
-  - For each countries, we use their name and flag to display on a `card` in our list of countries. After clicking on a `card`, we also retrieved country's name, capital, region, subregion, languages, currency, population, area, timezone, and Google Maps for their modal.
-- API endpoint #2
-  - Description of endpoint
-  - List of data values used by the endpoint
-- API endpoint #3
-  - Description of endpoint
-  - List of data values used by the endpoint
+  - This endpoint retrieves data on all the independent countries.
+  - For each countries, we use their name and flag to display on a `card` in our list of countries. After clicking on a `card`, we also retrieved country's name, country's code, capital, region, subregion, languages, currency, population, area, timezone, and Google Maps for their modal.
+- API endpoint #2: https://rough-sun-2523.fly.dev/country/{passport country code}
+  - This endpoint retrieves visa stats on a country.
+  - The data would show the country's name, code, and a list of visa requirements for different countries.
+- API endpoint #3: https://rough-sun-2523.fly.dev/visa/{passport country code}/{destination country code}
+  - This endpoint retrieves visa requirements between two countries.
+  - The data would show the passport country's name and code, destination country's name and code, and visa requirement.
 
 [If your API requires an API key, say so here.]
 
