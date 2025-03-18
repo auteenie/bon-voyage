@@ -30,10 +30,10 @@ const CountriesPage = () => {
           />
         </li>
 
-        <h1>List of Countries</h1>
       </NavBar>
-
+    
       <div className="search-filter">
+      <h1>List of Countries</h1>
         <input
           type="text"
           name="search"
