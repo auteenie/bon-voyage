@@ -4,6 +4,7 @@ import Button from "../components/Button";
 import FlagsList from "../components/FlagsList";
 import NavBar from "../components/NavBar";
 import CountryModal from "../components/CountryModal";
+import SearchBar from "../components/SearchBar";
 
 const CountriesPage = () => {
   const navigate = useNavigate();
@@ -29,17 +30,11 @@ const CountriesPage = () => {
             onClick={() => navigate("/pages/PassportPage")}
           />
         </li>
-
       </NavBar>
-    
+
       <div className="search-filter">
-      <h1>List of Countries</h1>
-        <input
-          type="text"
-          name="search"
-          className="search"
-          placeholder="Search for a Country..."
-        />
+        <h1>List of Countries</h1>
+        <SearchBar />
 
         <select className="filter">
           <option value="">All</option>
@@ -50,7 +45,11 @@ const CountriesPage = () => {
 
       <section className="flags-list">
         <FlagsList onClick={openModal} />
-        <CountryModal isOpen={isOpen} onClose={closeModal} country={selectedCountry} />
+        <CountryModal
+          isOpen={isOpen}
+          onClose={closeModal}
+          country={selectedCountry}
+        />
       </section>
     </main>
   );
