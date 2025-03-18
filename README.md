@@ -31,6 +31,7 @@ The application will feature the following frontend routes and core features:
 * On the `/passport` page, users can keep track of the places they've traveled by collecting stamps in their digital passport.
 * On the `/countries` page, users can view a list of all the countries and their flags by clicking on the card.
   * When the modal pops up, users can view more information about the country.
+  * Users can view the visa requirements between two countries based on their origin country and destination country.
 * On the `/passport/[country]` page, users can view their adventures in the countries they visited by clicking on the colorized stamps.
   * When the modal pops up, on the same page, by clicking on the country's name, users can view more information about the country.
 
@@ -39,7 +40,6 @@ The application will feature the following frontend routes and core features:
 If time permits, the following stretch features will be implemented in order of priority:
 
 * Users will be able to view the flat global map with hover effect displaying the name of the country.
-* Users will be able to see the visa requirements between two countries.
 * Users will be able to view other users’ recommendations on the map.
 * Users will be able to collect more countries’ stamps.
 
