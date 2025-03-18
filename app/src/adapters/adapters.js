@@ -1,20 +1,26 @@
 import { handleFetch } from "./handleFetch";
 
-export const countries = async () => {
+export const getAllFlags = async () => {
   const [data, error] = await handleFetch(
-    `https://restcountries.com/v3.1/name/${country}?fields=name,capital,currencies,flags,language,translations,region,subregion,maps,continents`
+    "https://restcountries.com/v3.1/independent?status=true"
+  );
+
+  if (error) {
+    console.error("Error fetching flags:", error);
+    return [null, error];
+  }
+
+  return [data, null];
+};
+
+export const getPassportVisas = async (passportCountry, destinationCountry) => {
+  const [data, error] = await handleFetch(
+    `https://rough-sun-2523.fly.dev/visa/${passportCountry}/${destinationCountry}`
   );
 };
 
-export const getAllFlags = async () => {
+export const getVisaStats = async (passportCountry) => {
   const [data, error] = await handleFetch(
-    'https://restcountries.com/v3.1/independent?status=true'
+    `https://rough-sun-2523.fly.dev/country/${passportCountry}`
   );
-  
-  if (error) {
-    console.error('Error fetching flags:', error);
-    return [null, error];
-  }
-  
-  return [data, null];
 };

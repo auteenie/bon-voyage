@@ -1,4 +1,8 @@
 const Filter = () => {
+  const handleCountriesAZ = () => {};
+
+  const handleRegionAZ = () => {};
+
   return (
     <select className="filter">
       <option value="">All</option>
