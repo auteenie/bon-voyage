@@ -11,9 +11,9 @@ Our application, ***Bon Voyage!*** is for explorers who are eager to see the wor
 This application will use the **REST Countries** API. Below are the documentation and specific endpoints we intend to use and the front-end pages that will use them.
 
 - Link to API documentation: [REST Countries API](https://restcountries.com/)
-- API endpoint #1
-  - Description of endpoint
-  - List of data values used by the endpoint
+- API endpoint #1: https://restcountries.com/v3.1/independent?status=true
+  - This endpoint is retrieves data on all the independent countries.
+  - For each countries, we use their name and flag to display on a `card` in our list of countries. After clicking on a `card`, we also retrieved country's name, capital, region, subregion, languages, currency, population, area, timezone, and Google Maps for their modal.
 - API endpoint #2
   - Description of endpoint
   - List of data values used by the endpoint
