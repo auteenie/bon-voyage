@@ -80,4 +80,4 @@ Below, you can find wireframes for our project. Each wireframe shows a different
 ![Excalidraw Wireframe](https://github.com/user-attachments/assets/ac1650a0-955e-41e7-a2a1-a2648f0b23c2)
 
 
-[Figma Wireframe](add link here)
+### [Figma Wireframe](https://www.figma.com/design/BTh6vTzpz1k72PizFYyjRI/passport-app?node-id=0-1&t=yOxzkEW7VZZsdMz7-1)
