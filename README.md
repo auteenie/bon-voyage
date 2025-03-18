@@ -81,3 +81,4 @@ Below, you can find wireframes for our project. Each wireframe shows a different
 
 
 ### [Figma Wireframe](https://www.figma.com/design/BTh6vTzpz1k72PizFYyjRI/passport-app?node-id=0-1&t=yOxzkEW7VZZsdMz7-1)
+![Figma Wireframe](https://github.com/user-attachments/assets/75f2119e-07f1-429c-8734-692434ca67c2)
