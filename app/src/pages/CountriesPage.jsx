@@ -5,6 +5,7 @@ import FlagsList from "../components/FlagsList";
 import NavBar from "../components/NavBar";
 import CountryModal from "../components/CountryModal";
 import SearchBar from "../components/SearchBar";
+import Filter from "../components/Filter";
 
 const CountriesPage = () => {
   const navigate = useNavigate();
@@ -36,11 +37,7 @@ const CountriesPage = () => {
         <h1>List of Countries</h1>
         <SearchBar />
 
-        <select className="filter">
-          <option value="">All</option>
-          <option value="Countries A-Z">Countries A-Z</option>
-          <option value="Region">Region</option>
-        </select>
+        <Filter />
       </div>
 
       <section className="flags-list">
