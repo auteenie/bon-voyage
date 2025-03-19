@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
-import { getAllFlags } from "../adapters/adapters";
-
-const SearchBar = () => {
-  const [searchItem, setSearchItem] = useState("");
+const SearchBar = ({ onSearch }) => {
+  const handleInputChange = (e) => {
+    const searchTerm = e.target.value;
+    onSearch(searchTerm);
+  }
 
   return (
     <input
@@ -10,8 +10,7 @@ const SearchBar = () => {
       name="search"
       className="search"
       placeholder="Search for a Country..."
-      value={searchItem}
-      onChange={(e) => setSearchItem(e.target.value)}
+      onChange={handleInputChange}
     />
   );
 };

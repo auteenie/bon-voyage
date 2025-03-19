@@ -1,41 +1,24 @@
-import { getAllFlags } from "../adapters/adapters";
 import { useState, useEffect } from "react";
 import CouldNotLoadData from "../pages/CouldNotLoadData";
 import FlagCard from "./FlagCard";
 
-const FlagsList = ({ onClick }) => {
-  const [flags, setFlags] = useState([]);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchFlags = async () => {
-      const [data, error] = await getAllFlags();
-      if (error) {
-        setError(<CouldNotLoadData />);
-      } else {
-        setFlags(data);
-      }
-    };
-    fetchFlags();
-  }, []);
-
+const FlagsList = ({ flags, onClick }) => {
   return (
     <div>
-      {error ||
-        (flags.length ? (
-          flags.map((flag, i) => (
-            <FlagCard
-              key={i}
-              name={flag?.name?.common || "Unknown Country"}
-              src={flag?.flags?.png}
-              alt={flag?.flags?.alt || "No Flag Available"}
-              onClick={() => onClick(flag)}
-              flag={flag}
-            />
-          ))
-        ) : (
-          <p>Loading...</p>
-        ))}
+      {flags.length ? (
+        flags.map((flag, i) => (
+          <FlagCard
+            key={i}
+            name={flag?.name?.common || "Unknown Country"}
+            src={flag?.flags?.png}
+            alt={flag?.flags?.alt || "No Flag Available"}
+            onClick={() => onClick(flag)}
+            flag={flag}
+          />
+        ))
+      ) : (
+        <p className="no-countries">Are you sure that's on Earth?</p>
+      )}
     </div>
   );
 };

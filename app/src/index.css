@@ -336,19 +336,16 @@ nav li {
 
 .countries-nav {
   display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 20px 40px;
   width: 100%;
 }
 
 .countries-nav ul {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
+  width: 100%;
+  justify-content: space-between;
   margin: 0;
-  padding: 0;
+  padding: 0 20px;
 }
 
 .search-filter {
@@ -384,20 +381,38 @@ nav li {
   font-style: italic;
 }
 
-/* Tablet screens */
+.search-filter h1 {
+  margin-bottom: 50px;
+  letter-spacing: 1.5px;
+  background-color: rgba(201, 166, 107, 0.5);
+  padding: 20px 20px;
+  border-radius: 5px;
+  width: fit-content;
+}
+
 @media screen and (max-width: 1024px) {
   .flags-list > div {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
     padding: 1.5rem;
   }
 }
 
-/* Mobile screens */
 @media screen and (max-width: 768px) {
   .flags-list > div {
-    grid-template-columns: 1fr; /* 1 column */
+    grid-template-columns: 1fr;
     gap: 1rem;
     padding: 1rem;
   }
+}
+
+.no-countries {
+  font-size: 4rem;
+  text-align: center;
+  color: #0b1f3a;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /*` perfect centering */
+  width: 100%;
 }

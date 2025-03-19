@@ -1,16 +1,46 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { getAllFlags } from "../adapters/adapters";
 import Button from "../components/Button";
 import FlagsList from "../components/FlagsList";
 import NavBar from "../components/NavBar";
 import CountryModal from "../components/CountryModal";
 import SearchBar from "../components/SearchBar";
 import Filter from "../components/Filter";
+import CouldNotLoadData from "../pages/CouldNotLoadData";
 
 const CountriesPage = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState(null);
+
+  //flag & search state
+  const [flags, setFlags] = useState([]);
+  const [error, setError] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  // Move useEffect from FlagsList to here
+  useEffect(() => {
+    const fetchFlags = async () => {
+      const [data, error] = await getAllFlags();
+      if (error) {
+        setError(<CouldNotLoadData />);
+      } else {
+        setFlags(data);
+      }
+    };
+    fetchFlags();
+  }, []);
+
+  // Add search handler
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+  };
+
+  // Filter flags based on search term
+  const filteredFlags = flags.filter(flag => 
+    flag?.name?.common?.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const openModal = (country) => {
     setSelectedCountry(country);
@@ -35,12 +65,17 @@ const CountriesPage = () => {
 
       <div className="search-filter">
         <h1>List of Countries</h1>
-        <SearchBar />
+        <SearchBar onSearch={handleSearch} />
         <Filter />
       </div>
 
       <section className="flags-list">
-        <FlagsList onClick={openModal} />
+        {error || (
+          <FlagsList 
+            flags={filteredFlags} 
+            onClick={openModal} 
+          />
+        )}
         <CountryModal
           isOpen={isOpen}
           onClose={closeModal}
