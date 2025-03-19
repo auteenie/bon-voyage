@@ -3,27 +3,47 @@ import { useState, useEffect } from "react";
 import CouldNotLoadData from "../pages/CouldNotLoadData";
 import FlagCard from "./FlagCard";
 
-const FlagsList = ({ onClick }) => {
+const FlagsList = ({ onClick, sortOption }) => {
   const [flags, setFlags] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchFlags = async () => {
       const [data, error] = await getAllFlags();
-      if (error) {
-        setError(<CouldNotLoadData />);
-      } else {
-        setFlags(data);
-      }
+      error ? setError(<CouldNotLoadData />) : setFlags(data);
     };
+
     fetchFlags();
   }, []);
+
+  const sortFlags = (flags) => {
+    let sorted = [...flags];
+
+    switch (sortOption) {
+      case "Countries A-Z":
+        sorted.sort((a, b) => a.name.common.localeCompare(b.name.common));
+        break;
+      case "Countries Z-A":
+        sorted.sort((a, b) => b.name.common.localeCompare(a.name.common));
+        break;
+      case "Regions A-Z":
+        sorted.sort((a, b) => a.region.localeCompare(b.region));
+        break;
+      case "Regions Z-A":
+        sorted.sort((a, b) => b.region.localeCompare(a.region));
+        break;
+      default:
+        break;
+    }
+
+    return sorted;
+  };
 
   return (
     <div>
       {error ||
         (flags.length ? (
-          flags.map((flag, i) => (
+          sortFlags(flags).map((flag, i) => (
             <FlagCard
               key={i}
               name={flag?.name?.common || "Unknown Country"}

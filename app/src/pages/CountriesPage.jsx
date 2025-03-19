@@ -19,6 +19,7 @@ const CountriesPage = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState(null);
+  const [sortOption, setSortOption] = useState("Show All");
 
   const openModal = (country) => {
     setSelectedCountry(country);
@@ -28,6 +29,10 @@ const CountriesPage = () => {
   const closeModal = () => {
     setIsOpen(false);
     setSelectedCountry(null);
+  };
+
+  const handleSortChange = (option) => {
+    setSortOption(option);
   };
 
   return (
@@ -44,11 +49,11 @@ const CountriesPage = () => {
       <div className="search-filter">
         <h1>List of Countries</h1>
         <SearchBar />
-        <Filter menu={sortByMenu} />
+        <Filter menu={sortByMenu} onSelect={handleSortChange} />
       </div>
 
       <section className="flags-list">
-        <FlagsList onClick={openModal} />
+        <FlagsList onClick={openModal} sortOption={sortOption} />
         <CountryModal
           isOpen={isOpen}
           onClose={closeModal}
