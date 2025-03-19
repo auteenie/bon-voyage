@@ -1,13 +1,20 @@
-const Filter = () => {
-  const handleCountriesAZ = () => {};
+import { useState } from "react";
 
-  const handleRegionAZ = () => {};
+const Filter = ({ menu, onSelect }) => {
+  const [selected, setSelected] = useState("");
+
+  const handleChange = (e) => {
+    setSelected(e.target.value);
+    onSelect(e.target.value);
+  };
 
   return (
-    <select className="filter">
-      <option value="">All</option>
-      <option value="Countries A-Z">Countries A-Z</option>
-      <option value="Region">Region</option>
+    <select className="filter" value={selected} onChange={handleChange}>
+      {menu.map((option, i) => (
+        <option key={i} value={option}>
+          {option}
+        </option>
+      ))}
     </select>
   );
 };

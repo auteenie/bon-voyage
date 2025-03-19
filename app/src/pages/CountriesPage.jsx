@@ -7,40 +7,21 @@ import NavBar from "../components/NavBar";
 import CountryModal from "../components/CountryModal";
 import SearchBar from "../components/SearchBar";
 import Filter from "../components/Filter";
-import CouldNotLoadData from "../pages/CouldNotLoadData";
+
+const sortByMenu = [
+  "Default",
+  "Countries A-Z",
+  "Countries Z-A",
+  "Regions A-Z",
+  "Regions Z-A",
+];
 
 const CountriesPage = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState(null);
-
-  //flag & search state
-  const [flags, setFlags] = useState([]);
-  const [error, setError] = useState(null);
-  const [searchTerm, setSearchTerm] = useState("");
-
-  // Move useEffect from FlagsList to here
-  useEffect(() => {
-    const fetchFlags = async () => {
-      const [data, error] = await getAllFlags();
-      if (error) {
-        setError(<CouldNotLoadData />);
-      } else {
-        setFlags(data);
-      }
-    };
-    fetchFlags();
-  }, []);
-
-  // Add search handler
-  const handleSearch = (term) => {
-    setSearchTerm(term);
-  };
-
-  // Filter flags based on search term
-  const filteredFlags = flags.filter(flag => 
-    flag?.name?.common?.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const [sortOption, setSortOption] = useState("Show All");
+  const [filteredCountries, setFilteredCountries] = useState([]);
 
   const openModal = (country) => {
     setSelectedCountry(country);
@@ -50,6 +31,16 @@ const CountriesPage = () => {
   const closeModal = () => {
     setIsOpen(false);
     setSelectedCountry(null);
+  };
+
+  const handleSortChange = (option) => {
+    setSortOption(option);
+  };
+
+  const handleSearch = (searchResults) => {
+    console.log("Filtered Countries from Search: ", searchResults); // Debug log
+
+    setFilteredCountries(searchResults);
   };
 
   return (
@@ -66,16 +57,15 @@ const CountriesPage = () => {
       <div className="search-filter">
         <h1>List of Countries</h1>
         <SearchBar onSearch={handleSearch} />
-        <Filter />
+        <Filter menu={sortByMenu} onSelect={handleSortChange} />
       </div>
 
       <section className="flags-list">
-        {error || (
-          <FlagsList 
-            flags={filteredFlags} 
-            onClick={openModal} 
-          />
-        )}
+        <FlagsList
+          onClick={openModal}
+          sortOption={sortOption}
+          filteredCountries={filteredCountries}
+        />
         <CountryModal
           isOpen={isOpen}
           onClose={closeModal}
