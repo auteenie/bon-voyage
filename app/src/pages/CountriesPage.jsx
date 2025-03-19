@@ -8,7 +8,7 @@ import SearchBar from "../components/SearchBar";
 import Filter from "../components/Filter";
 
 const sortByMenu = [
-  "Show All",
+  "Default",
   "Countries A-Z",
   "Countries Z-A",
   "Regions A-Z",
@@ -20,6 +20,7 @@ const CountriesPage = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [sortOption, setSortOption] = useState("Show All");
+  const [filteredCountries, setFilteredCountries] = useState([]);
 
   const openModal = (country) => {
     setSelectedCountry(country);
@@ -35,6 +36,12 @@ const CountriesPage = () => {
     setSortOption(option);
   };
 
+  const handleSearch = (searchResults) => {
+    console.log("Filtered Countries from Search: ", searchResults); // Debug log
+
+    setFilteredCountries(searchResults);
+  };
+
   return (
     <main className="view-countries">
       <NavBar className="countries-nav">
@@ -48,12 +55,16 @@ const CountriesPage = () => {
 
       <div className="search-filter">
         <h1>List of Countries</h1>
-        <SearchBar />
+        <SearchBar onSearch={handleSearch} />
         <Filter menu={sortByMenu} onSelect={handleSortChange} />
       </div>
 
       <section className="flags-list">
-        <FlagsList onClick={openModal} sortOption={sortOption} />
+        <FlagsList
+          onClick={openModal}
+          sortOption={sortOption}
+          filteredCountries={filteredCountries}
+        />
         <CountryModal
           isOpen={isOpen}
           onClose={closeModal}

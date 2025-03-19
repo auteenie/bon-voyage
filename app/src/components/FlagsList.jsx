@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import CouldNotLoadData from "../pages/CouldNotLoadData";
 import FlagCard from "./FlagCard";
 
-const FlagsList = ({ onClick, sortOption }) => {
+const FlagsList = ({ onClick, sortOption, filteredCountries }) => {
   const [flags, setFlags] = useState([]);
   const [error, setError] = useState(null);
 
@@ -39,11 +39,17 @@ const FlagsList = ({ onClick, sortOption }) => {
     return sorted;
   };
 
+  const applySearchAndSort = () => {
+    const displayFlags =
+      filteredCountries.length > 0 ? filteredCountries : flags;
+    return sortFlags(displayFlags);
+  };
+
   return (
     <div>
       {error ||
         (flags.length ? (
-          sortFlags(flags).map((flag, i) => (
+          applySearchAndSort().map((flag, i) => (
             <FlagCard
               key={i}
               name={flag?.name?.common || "Unknown Country"}
