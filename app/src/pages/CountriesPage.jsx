@@ -8,6 +8,7 @@ import SearchBar from "../components/SearchBar";
 import Filter from "../components/Filter";
 
 const sortByMenu = [
+  "Show All",
   "Countries A-Z",
   "Countries Z-A",
   "Regions A-Z",

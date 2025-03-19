@@ -3,6 +3,7 @@ import { getVisaStats } from "../adapters/adapters";
 import Filter from "./Filter";
 
 const visaCategories = [
+  { key: "Select a Visa:", label: "" },
   { key: "VF", label: "Visa Free" },
   { key: "VOA", label: "Visa On Arrival (including eTA)" },
   { key: "VR", label: "Visa Required" },
@@ -27,6 +28,7 @@ const VisaStats = ({ code }) => {
   };
 
   const renderVisaList = (category) => {
+    if (category === "Select a Visa:") return;
     if (!stats || !stats[category]) return <p>Loading visa stats...</p>;
 
     return stats[category].length > 0 ? (
@@ -46,7 +48,7 @@ const VisaStats = ({ code }) => {
   return (
     <div className="visa-stats">
       <h3>Visa Statistics</h3>
-      <label>Select a visa:</label>
+      {/* <label>Select a visa:</label> */}
 
       <Filter
         menu={visaCategories.map((item) => item.key)}
