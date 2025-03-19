@@ -37,44 +37,54 @@ const CountryModal = ({ isOpen, onClose, country }) => {
       <div className="modal-content">
         <Button name="❌" onClick={onClose} />
         <h1>{country.name?.common}</h1>
+
         <div className="modal-text">
           <ul>
             <li>
               <strong>Capital:</strong>{" "}
               {country.capital?.[0] || "Not Available"}
             </li>
+
             <li>
               <strong>Region:</strong> {country.region || "Not Available"}
             </li>
+
             <li>
               <strong>Subregion:</strong> {country.subregion || "Not Available"}
             </li>
+
             <li>
               <strong>Languages:</strong>{" "}
               {Object.values(country.languages || {}).join(", ") ||
                 "Not Available"}
             </li>
+
             <li>
               <strong>Currency:</strong>{" "}
               {Object.values(country.currencies || {})
                 .map((curr) => `${curr.name} (${curr.symbol})`)
                 .join(", ") || "Not Available"}
             </li>
+
             <li>
               <strong>Population:</strong>{" "}
               {country.population || "Not Available"}
             </li>
+
             <li>
               <strong>Area:</strong> {country.area || "Not Available"} square
               kilometers
             </li>
+
             <li>
               <strong>Timezones:</strong>{" "}
               {country.timezones[0] || "Not Available"}
             </li>
+
             <li>
               <strong>CCA2 Code:</strong> {country.cca2 || "Not Available"}
             </li>
+
             <li>
               <strong>Map:</strong>{" "}
               <a

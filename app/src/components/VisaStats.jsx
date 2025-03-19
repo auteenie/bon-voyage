@@ -48,7 +48,6 @@ const VisaStats = ({ code }) => {
   return (
     <div className="visa-stats">
       <h3>Visa Statistics</h3>
-      {/* <label>Select a visa:</label> */}
 
       <Filter
         menu={visaCategories.map((item) => item.key)}
