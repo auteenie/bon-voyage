@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getAllFlags } from "../adapters/adapters";
 
 const SearchBar = () => {
   const [searchItem, setSearchItem] = useState("");

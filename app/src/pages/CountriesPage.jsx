@@ -7,6 +7,14 @@ import CountryModal from "../components/CountryModal";
 import SearchBar from "../components/SearchBar";
 import Filter from "../components/Filter";
 
+const sortByMenu = [
+  "Default",
+  "Countries A-Z",
+  "Countries Z-A",
+  "Regions A-Z",
+  "Regions Z-A",
+];
+
 const CountriesPage = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
@@ -36,7 +44,7 @@ const CountriesPage = () => {
       <div className="search-filter">
         <h1>List of Countries</h1>
         <SearchBar />
-        <Filter />
+        <Filter menu={sortByMenu} />
       </div>
 
       <section className="flags-list">

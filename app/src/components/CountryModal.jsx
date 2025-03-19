@@ -1,6 +1,28 @@
+import { useState, useEffect } from "react";
+import { getVisaStats } from "../adapters/adapters";
 import Button from "./Button";
+import CouldNotLoadData from "../pages/CouldNotLoadData";
+import VisaStats from "./VisaStats";
 
 const CountryModal = ({ isOpen, onClose, country }) => {
+  const [visa, setVisa] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if (!country || !country.cca2) return;
+
+    const fetch = async () => {
+      const [data, error] = await getVisaStats(country.cca2);
+      if (error) {
+        setError(<CouldNotLoadData />);
+      } else {
+        setVisa(data);
+      }
+    };
+
+    fetch();
+  }, [country]);
+
   console.log("Modal country data:", country); // Debug the data structure
   if (!isOpen || !country) return null;
 
@@ -51,6 +73,9 @@ const CountryModal = ({ isOpen, onClose, country }) => {
               {country.timezones[0] || "Not Available"}
             </li>
             <li>
+              <strong>CCA2 Code:</strong> {country.cca2 || "Not Available"}
+            </li>
+            <li>
               <strong>Map:</strong>{" "}
               <a
                 href={`https://www.google.com/maps/search/${country.name?.common}`}
@@ -66,6 +91,8 @@ const CountryModal = ({ isOpen, onClose, country }) => {
             src={country.flags?.png}
             alt={country.flags?.alt || `Flag of ${country.name?.common}`}
           />
+
+          <VisaStats code={country.cca2} />
         </div>
       </div>
     </dialog>

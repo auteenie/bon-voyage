@@ -13,9 +13,9 @@ export const getAllFlags = async () => {
   return [data, null];
 };
 
-export const getPassportVisas = async (passportCountry, destinationCountry) => {
+export const getPassportVisas = async (passport, destination) => {
   const [data, error] = await handleFetch(
-    `https://rough-sun-2523.fly.dev/visa/${passportCountry}/${destinationCountry}`
+    `https://rough-sun-2523.fly.dev/visa/${passport}/${destination}`
   );
 
   if (error) {
@@ -26,9 +26,9 @@ export const getPassportVisas = async (passportCountry, destinationCountry) => {
   return [data, null];
 };
 
-export const getVisaStats = async (passportCountry) => {
+export const getVisaStats = async (passport) => {
   const [data, error] = await handleFetch(
-    `https://rough-sun-2523.fly.dev/country/${passportCountry}`
+    `https://rough-sun-2523.fly.dev/country/${passport}`
   );
 
   if (error) {
