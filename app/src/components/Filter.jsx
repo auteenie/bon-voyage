@@ -10,7 +10,6 @@ const Filter = ({ menu, onSelect }) => {
 
   return (
     <select className="filter" value={selected} onChange={handleChange}>
-      {/* <option value="">Show All</option> */}
       {menu.map((option, i) => (
         <option key={i} value={option}>
           {option}
