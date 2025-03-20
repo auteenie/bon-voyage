@@ -14,12 +14,14 @@ This application will use the **REST Countries** API. Below are the documentatio
 - API endpoint #1: https://restcountries.com/v3.1/independent?status=true
   - This endpoint retrieves data on all the independent countries.
   - For each countries, we use their name and flag to display on a `card` in our list of countries. After clicking on a `card`, we also retrieved country's name, country's code, capital, region, subregion, languages, currency, population, area, timezone, and Google Maps for their modal.
-- API endpoint #2: https://rough-sun-2523.fly.dev/country/{passport country code}
+- API endpoint #2: https://rough-sun-2523.fly.dev/country/{passport-country-code}
   - This endpoint retrieves visa stats on a country.
   - The data would show the country's name, code, and a list of visa requirements for different countries.
-- API endpoint #3: https://rough-sun-2523.fly.dev/visa/{passport country code}/{destination country code}
+- API endpoint #3: https://rough-sun-2523.fly.dev/visa/{passport-country-code}/{destination-country-code}
   - This endpoint retrieves visa requirements between two countries.
   - The data would show the passport country's name and code, destination country's name and code, and visa requirement.
+- Extra Credit API endpoint #4: https://restcountries.com/v3.1/name/${country-name}?fields=cca2
+  - The data would show the country's code.
 
 [If your API requires an API key, say so here.]
 
