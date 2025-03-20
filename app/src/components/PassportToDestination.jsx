@@ -3,48 +3,65 @@ import { handleFetch } from "../adapters/handleFetch";
 import { getPassportVisas } from "../adapters/adapters";
 
 const PassportToDestination = ({ country, origin }) => {
-  const [visa, setVisa] = useState([]);
-  const [countryC, setCountryC] = useState("");
-  const [originC, setOriginC] = useState("");
+  const [visa, setVisa] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchPassToDest = async () => {
-      const [countryCode, countryErr] = await handleFetch(
-        `https://restcountries.com/v3.1/name/${country}?fields=cca2`
-      );
-      countryErr
-        ? setError("Failed to fetch country code")
-        : setCountryC(countryCode);
+      try {
+        const [countryCode, countryErr] = await handleFetch(
+          `https://restcountries.com/v3.1/name/${country}?fields=cca2`
+        );
+        if (countryErr || !countryData.length) {
+          setError("Failed to fetch country code");
+          return;
+        }
 
-      const [originCode, err] = await handleFetch(
-        `https://restcountries.com/v3.1/name/${origin}?fields=cca2`
-      );
-      err
-        ? setError("Failed to fetch origin country code")
-        : setOriginC(originCode);
+        const [originCode, originErr] = await handleFetch(
+          `https://restcountries.com/v3.1/name/${origin}?fields=cca2`
+        );
+        if (originErr || !originData.length) {
+          setError("Failed to fetch origin country code");
+          return;
+        }
 
-      const [data, error] = await getPassportVisas(originC, countryC);
+        const [visaData, visaError] = await getPassportVisas(
+          originCode,
+          countryCode
+        );
 
-      error ? setError("Failed to fetch visa") : setVisa(data);
+        if (visaError) {
+          setError("Failed to fetch visa");
+          return;
+        }
+        setVisa(visaData);
+      } catch (err) {
+        setError("Try again.");
+      }
     };
 
     fetchPassToDest();
-  });
+  }, [country, origin]);
 
   return (
     <div className="visa-requirements">
       <h3>Visa Requirements</h3>
-      <p>
-        Origin Country: {visa.passport.name} ({visa.passport.code})
-      </p>
-      <p>
-        Destination Country: {visa.destination.name} ({visa.country.code})
-      </p>
-      {error || (
-        <p>
-          Visa: ${visa.category.name} ({visa.category.code})
-        </p>
+      {error && <p className="error">{error}</p>}
+      {visa ? (
+        <>
+          <p>
+            Origin Country: {visa.passport?.name} ({visa.passport?.code})
+          </p>
+          <p>
+            Destination Country: {visa.destination?.name} (
+            {visa.destination?.code})
+          </p>
+          <p>
+            Visa: {visa.category?.name} ({visa.category?.code})
+          </p>
+        </>
+      ) : (
+        <p>Loading visa details...</p>
       )}
     </div>
   );
