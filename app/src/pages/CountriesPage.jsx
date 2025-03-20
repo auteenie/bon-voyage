@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getAllFlags } from "../adapters/adapters";
 import Button from "../components/Button";
 import FlagsList from "../components/FlagsList";
 import NavBar from "../components/NavBar";
@@ -19,6 +18,7 @@ const sortByMenu = [
 const CountriesPage = () => {
   const navigate = useNavigate();
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [sortOption, setSortOption] = useState("Show All");
@@ -34,6 +34,14 @@ const CountriesPage = () => {
     setSelectedCountry(null);
   };
 
+  const handleSearch = (searchResults) => {
+    if (searchResults.length > 0) {
+      setFilteredCountries(searchResults);
+    } else {
+      setFilteredCountries([]);
+    }
+  };
+
   return (
     <main className="view-countries">
       <NavBar className="countries-nav">
@@ -47,9 +55,7 @@ const CountriesPage = () => {
 
       <div className="search-filter">
         <h1>List of Countries</h1>
-        <SearchBar
-          onSearch={(searchResults) => setFilteredCountries(searchResults)}
-        />
+        <SearchBar onSearch={handleSearch} />
         <Filter
           menu={sortByMenu}
           onSelect={(option) => setSortOption(option)}

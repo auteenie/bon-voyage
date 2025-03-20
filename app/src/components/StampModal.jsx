@@ -33,8 +33,6 @@ const StampModal = ({ isOpen, onClose, country, origin }) => {
       </div>
 
       <PassportToDestination country={country} origin={origin} />
-      {/* 1. Need to pass in the userData's origin country's code and the code of the country that's being currently clicked on.
-      2. This way this automatically shows the visa requirements without too much functionality */}
 
       <div className="notes">
         <h3>Notes:</h3>

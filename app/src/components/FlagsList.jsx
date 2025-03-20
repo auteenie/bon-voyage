@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
+import { getAllFlags } from "../adapters/adapters";
 import CouldNotLoadData from "../pages/CouldNotLoadData";
 import FlagCard from "./FlagCard";
-import { getAllFlags } from "../adapters/adapters";
 
 const FlagsList = ({ onClick, sortOption, filteredCountries }) => {
   const [flags, setFlags] = useState([]);
@@ -41,7 +41,11 @@ const FlagsList = ({ onClick, sortOption, filteredCountries }) => {
 
   const applySearchAndSort = () => {
     const displayFlags =
-      filteredCountries.length > 0 ? filteredCountries : flags;
+      filteredCountries.length > 0
+        ? flags.filter((flag) =>
+            filteredCountries.some((f) => f.value === flag.cca3)
+          )
+        : flags;
     return sortFlags(displayFlags);
   };
 
