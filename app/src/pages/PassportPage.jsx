@@ -25,7 +25,7 @@ const PassportPage = () => {
           src={`/assets/${userData?.country}.png`}
           alt={`${userData?.country} Passport Cover`}
         />
-        <StampModal />
+        {/* <StampModal /> */}
         {/* 1. Need to implement the isOpen functionality
         2. Pass in the userData to the StampModal to grab the origin country */}
       </section>
