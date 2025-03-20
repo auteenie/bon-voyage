@@ -13,10 +13,6 @@ const PassportPage = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const navigate = useNavigate();
-
-  const userData = JSON.parse(localStorage.getItem("userData"));
-  const cleanCountry = userData?.country.replace(" ", "").toLowerCase();
   const stampsArray = Object.entries(stamps);
   const stampsPerPage = 6;
   const totalPages = Math.ceil(stampsArray.length / (stampsPerPage * 2));
