@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import NavBar from "../components/NavBar";
@@ -6,6 +7,19 @@ import StampModal from "../components/StampModal";
 const PassportPage = () => {
   const navigate = useNavigate();
   const userData = JSON.parse(localStorage.getItem("userData"));
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState(null);
+
+  const openModal = (country) => {
+    setIsOpen(true);
+    setSelectedCountry(country);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+    setSelectedCountry(null);
+  };
 
   return (
     <main className="profile">
@@ -20,14 +34,18 @@ const PassportPage = () => {
         <h1>Welcome, {userData?.firstName}!</h1>
       </NavBar>
 
-      <section className="flipbook">
+      <section className="flipbook" onClick={openModal}>
         <img
           src={`/assets/${userData?.country}.png`}
           alt={`${userData?.country} Passport Cover`}
         />
-        {/* <StampModal /> */}
-        {/* 1. Need to implement the isOpen functionality
-        2. Pass in the userData to the StampModal to grab the origin country */}
+
+        <StampModal
+          isOpen={isOpen}
+          onClose={closeModal}
+          country={selectedCountry}
+          origin={userData?.country}
+        />
       </section>
     </main>
   );
