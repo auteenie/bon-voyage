@@ -20,12 +20,10 @@ const PassportToDestination = ({ passportCode, destinationCode }) => {
   return (
     <div className="visa-requirements">
       <h3>Visa Requirements</h3>
-      <p>Origin Country: {}</p>
-      <p>Destination Country:</p>
+      <p>Origin Country: {visa.passport.name}</p>
+      <p>Destination Country: {visa.destination.name}</p>
       <SearchBar />
-      <p>Visa-Free:</p>
-      <p>Visa-On-Arrival:</p>
-      <p>Visa-Required:</p>
+      <p>Visa: ${visa.category.name}</p>
     </div>
   );
 };
