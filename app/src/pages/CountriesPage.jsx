@@ -18,6 +18,7 @@ const sortByMenu = [
 
 const CountriesPage = () => {
   const navigate = useNavigate();
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [sortOption, setSortOption] = useState("Show All");
@@ -39,7 +40,7 @@ const CountriesPage = () => {
         <li>
           <Button
             name="View Account"
-            onClick={() => navigate("/pages/PassportPage")}
+            onClick={() => navigate(`/pages/PassportPage/${currentUser.id}`)}
           />
         </li>
       </NavBar>
