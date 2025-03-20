@@ -33,16 +33,6 @@ const CountriesPage = () => {
     setSelectedCountry(null);
   };
 
-  const handleSortChange = (option) => {
-    setSortOption(option);
-  };
-
-  const handleSearch = (searchResults) => {
-    console.log("Filtered Countries from Search: ", searchResults); // Debug log
-
-    setFilteredCountries(searchResults);
-  };
-
   return (
     <main className="view-countries">
       <NavBar className="countries-nav">
@@ -56,8 +46,13 @@ const CountriesPage = () => {
 
       <div className="search-filter">
         <h1>List of Countries</h1>
-        <SearchBar onSearch={handleSearch} />
-        <Filter menu={sortByMenu} onSelect={handleSortChange} />
+        <SearchBar
+          onSearch={(searchResults) => setFilteredCountries(searchResults)}
+        />
+        <Filter
+          menu={sortByMenu}
+          onSelect={(option) => setSortOption(option)}
+        />
       </div>
 
       <section className="flags-list">
