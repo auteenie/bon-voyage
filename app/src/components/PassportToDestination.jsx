@@ -9,7 +9,7 @@ const PassportToDestination = ({ country, origin }) => {
   useEffect(() => {
     const fetchPassToDest = async () => {
       try {
-        const [countryCode, countryErr] = await handleFetch(
+        const [countryData, countryErr] = await handleFetch(
           `https://restcountries.com/v3.1/name/${country}?fields=cca2`
         );
         if (countryErr || !countryData.length) {
@@ -17,7 +17,7 @@ const PassportToDestination = ({ country, origin }) => {
           return;
         }
 
-        const [originCode, originErr] = await handleFetch(
+        const [originData, originErr] = await handleFetch(
           `https://restcountries.com/v3.1/name/${origin}?fields=cca2`
         );
         if (originErr || !originData.length) {
@@ -26,8 +26,8 @@ const PassportToDestination = ({ country, origin }) => {
         }
 
         const [visaData, visaError] = await getPassportVisas(
-          originCode,
-          countryCode
+          originData[0].cca2,
+          countryData[0].cca2
         );
 
         if (visaError) {
