@@ -6,7 +6,9 @@ const StampModal = ({ isOpen, onClose, country, origin }) => {
     <dialog
       className="stamp-modal"
       open={isOpen}
-      onClick={(e) => e.target === e.currentTarget && onClose()}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
     >
       <div className="heading">
         <h1>{country}</h1>

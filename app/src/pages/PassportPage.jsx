@@ -9,7 +9,6 @@ import stamps from '../stamps.js';
 const PassportPage = () => {
   const navigate = useNavigate();
   const userData = JSON.parse(localStorage.getItem("userData"));
-  const cleanCountry = userData?.country.replace(" ", "").toLowerCase();
   const [isOpen, setIsOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
   const [selectedCountry, setSelectedCountry] = useState(null);
