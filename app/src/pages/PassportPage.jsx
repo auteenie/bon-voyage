@@ -12,9 +12,11 @@ const PassportPage = () => {
   const cleanCountry = userData?.country.replace(" ", "").toLowerCase();
   const [isOpen, setIsOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
+  const [selectedCountry, setSelectedCountry] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const stampsArray = Object.entries(stamps);
   const stampsPerPage = 6;
-  const totalPages = Math.ceil(stampsArray.length / (stampsPerPage * 2)); // 2 pages shown at once
+  const totalPages = Math.ceil(stampsArray.length / (stampsPerPage * 2));
 
   const handlePrevPage = () => {
     setCurrentPage(prev => Math.max(0, prev - 2));
@@ -31,8 +33,15 @@ const PassportPage = () => {
     return (
       <div className="passport-page">
         {pageStamps.map(([country, stampSrc], idx) => (
-          <div key={country} className="stamp-container">
-            <img className="stamp" src={stampSrc} alt={`${country} stamp`} className="stamp" />
+          <div 
+            key={country} 
+            className="stamp-container"
+            onClick={() => {
+              setSelectedCountry(country);
+              setIsModalOpen(true);
+            }}
+          >
+            <img className="stamp" src={stampSrc} alt={`${country} stamp`} />
             {/* <p>{country}</p> */}
           </div>
         ))}
@@ -85,9 +94,12 @@ const PassportPage = () => {
             />
           </div>
         )}
-        {/* <StampModal /> */}
-        {/* 1. Need to implement the isOpen functionality
-        2. Pass in the userData to the StampModal to grab the origin country */}
+        <StampModal 
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          country={selectedCountry}
+          origin={userData?.country}
+        />
       </section>
     </main>
   );

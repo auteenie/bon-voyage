@@ -434,6 +434,12 @@ nav li {
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.stamp-container:hover {
+  transform: scale(1.05);
 }
 
 .stamp {
@@ -495,4 +501,61 @@ nav li {
 
 .arrow:hover {
   transform: scale(2.2);
+}
+
+.stamp-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #0b1f3a;
+  padding: 2rem;
+  border-radius: 12px;
+  border: none;
+  width: 80%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+
+}
+
+.stamp-modal .heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #c9a66b;
+}
+
+.stamp-modal h1 {
+  color: #f9f7f4 ;
+  margin: 0;
+}
+
+.stamp-modal h3 {
+  color: #f9f7f4;
+  margin-top: 1.5rem;
+}
+
+.stamp-modal textarea {
+  width: 95%;
+  min-height: 100px;
+  padding: 1rem;
+  border: 1px solid #c9a66b;
+  border-radius: 8px;
+  font-family: "Instrument Serif", serif;
+  font-size: 1.1em;
+  resize: vertical;
+  margin-top: 0.5rem;
+}
+
+.stamp-modal .notes {
+  margin-bottom: 2rem;
+}
+
+.stamp-modal a {
+  color: #c9a66b;
+  text-decoration: underline;
+  margin: 0 1rem;
 }
