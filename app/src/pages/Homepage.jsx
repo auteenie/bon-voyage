@@ -1,19 +1,43 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import Button from "../components/Button";
 
 const Homepage = () => {
   const [activeForm, setActiveForm] = useState(null);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const handleClick = (formType) => {
     setActiveForm(formType);
   };
 
   const handleSubmit = (data) => {
-    localStorage.setItem("userData", JSON.stringify(data));
-    console.log(`Data saved to localStorage: ${data}`);
+    if (activeForm === "signup") {
+      const newUser = {
+        ...data,
+        id: "user-" + Math.random().toString(36).substr(2, 9),
+      };
+      
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+      users.push(newUser);
+      localStorage.setItem("users", JSON.stringify(users));
+
+      navigate(`/pages/PassportPage/${newUser.id}`);
+    } else if (activeForm === "login") {
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+      const user = users.find(
+        user => user.username === data.username && user.password === data.password
+      );
+
+      if (user) {
+        localStorage.setItem("currentUser", JSON.stringify(user));
+        navigate(`/pages/PassportPage/${user.id}`);
+      } else {
+        setError("Invalid username or password");
+      }
+    }
   };
 
   return (
@@ -30,6 +54,7 @@ const Homepage = () => {
 
       <div className="home-content">
         <section className="home-intro">
+          {error && <p style={{color: "red"}}>{error}</p>}
           <p>Keep track of where you have been.</p>
           <p>Plan where you will go.</p>
           <p>And <em>bon voyage!</em> ✈️</p>

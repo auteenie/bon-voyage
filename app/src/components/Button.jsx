@@ -4,7 +4,7 @@ const Button = ({ name, onSubmit, onClick }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.clear();
+    localStorage.removeItem("currentUser");
     navigate("/");
   };
 

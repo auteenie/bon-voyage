@@ -11,7 +11,11 @@ const Form = ({ children, name, onSubmit }) => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    onSubmit(formData);
+    if (name === "Sign Up") {
+      onSubmit(formData);
+    } else {
+      onSubmit(formData);
+    }
   };
 
   return (

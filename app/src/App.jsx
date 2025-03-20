@@ -13,7 +13,7 @@ function App() {
       <Route path="/" element={<Homepage />} />
       <Route path="/pages/SignupForm" element={<SignupForm />} />
       <Route path="/pages/LoginForm" element={<LoginForm />} />
-      <Route path="/pages/PassportPage" element={<PassportPage />} />
+      <Route path="/pages/PassportPage/:userID" element={<PassportPage />} />
       <Route path="/pages/CountriesPage" element={<CountriesPage />} />
       <Route path="*" element={<CouldNotLoadData />} />
     </Routes>

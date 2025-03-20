@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Form from "../components/Form";
 
-const SignupForm = () => {
+const SignupForm = ({ onSubmit }) => {
   const navigate = useNavigate();
 
   const [signupData, setSignupData] = useState({
@@ -10,8 +10,6 @@ const SignupForm = () => {
     lastName: "",
     email: "",
     country: "",
-    username: "",
-    password: "",
   });
 
   const handleInputChange = (e) => {
@@ -19,15 +17,13 @@ const SignupForm = () => {
     setSignupData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (data) => {
-    const newUserData = { ...signupData, ...data };
-    localStorage.setItem("userData", JSON.stringify(newUserData));
-    console.log(`User data saved: ${newUserData}`);
-    navigate("/pages/PassportPage");
+  const handleFormSubmit = (formData) => {
+    const combinedData = { ...signupData, ...formData };
+    onSubmit(combinedData);
   };
 
   return (
-    <Form name={"Sign Up"} onSubmit={handleSubmit}>
+    <Form name={"Sign Up"} onSubmit={handleFormSubmit}>
       <label className="signup" aria-label="first name">
         First Name:{" "}
       </label>
