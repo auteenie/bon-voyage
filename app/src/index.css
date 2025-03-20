@@ -384,6 +384,81 @@ nav li {
   font-style: italic;
 }
 
+.passport-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.front-cover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;  /* Standard passport height */
+  width: 280px;   /* Standard passport width */
+  margin: 0 auto; /* Center the passport */
+  background-color: #0b1f3a;
+  color: #c9a66b;;
+  transition: transform 0.5s ease;
+}
+
+.open-passport {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 10px;
+  background-color: #0b1f3a;
+  max-width: 80%;
+  border-radius: 10px;
+}
+
+.passport-page {
+  background-color: white;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 30px;
+  padding: 40px;
+  height: 100%;
+  border-radius: 10px;
+  width: 80%;
+}
+
+.stamp-container {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.stamp {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+.open-button {
+  background: none;
+  border: none;
+  font-size: 2em;
+  cursor: pointer;
+  color: #0b1f3a;
+  padding: 10px;
+}
+
+.open-button:hover {
+  transform: scale(1.1);
+}
+
+.move-right {
+  color: #0b1f3a;
+}
+
 /* Tablet screens */
 @media screen and (max-width: 1024px) {
   .flags-list > div {
@@ -400,4 +475,24 @@ nav li {
     gap: 1rem;
     padding: 1rem;
   }
+}
+
+.arrow-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;  /* Adjust based on your needs */
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.arrow {
+  transform: scale(2);
+  color: #0b1f3a;
+  cursor: pointer;
+}
+
+.arrow:hover {
+  transform: scale(2.2);
 }
