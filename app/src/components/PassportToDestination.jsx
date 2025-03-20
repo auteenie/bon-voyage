@@ -12,7 +12,7 @@ const PassportToDestination = ({ country, origin }) => {
         const [countryData, countryErr] = await handleFetch(
           `https://restcountries.com/v3.1/name/${country}?fields=cca2`
         );
-        if (countryErr || !countryData.length) {
+        if (countryErr || !countryData?.length) {
           setError("Failed to fetch country code");
           return;
         }
@@ -20,14 +20,14 @@ const PassportToDestination = ({ country, origin }) => {
         const [originData, originErr] = await handleFetch(
           `https://restcountries.com/v3.1/name/${origin}?fields=cca2`
         );
-        if (originErr || !originData.length) {
+        if (originErr || !originData?.length) {
           setError("Failed to fetch origin country code");
           return;
         }
 
         const [visaData, visaError] = await getPassportVisas(
-          originData[0].cca2,
-          countryData[0].cca2
+          originData[0]?.cca2,
+          countryData[0]?.cca2
         );
 
         if (visaError) {
@@ -46,7 +46,7 @@ const PassportToDestination = ({ country, origin }) => {
   return (
     <div className="visa-requirements">
       <h3>Visa Requirements</h3>
-      {error && <p className="error">{error}</p>}
+      {/* {error && <p className="error">{error}</p>} */}
       {visa ? (
         <>
           <p>
