@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
+import { getAllFlags } from "../adapters/adapters";
 import CouldNotLoadData from "../pages/CouldNotLoadData";
 import FlagCard from "./FlagCard";
-import { getAllFlags } from "../adapters/adapters";
 
 const FlagsList = ({ onClick, sortOption, filteredCountries }) => {
   const [flags, setFlags] = useState([]);
@@ -12,9 +12,11 @@ const FlagsList = ({ onClick, sortOption, filteredCountries }) => {
       const [data, error] = await getAllFlags();
       error ? setError(<CouldNotLoadData />) : setFlags(data);
     };
-
     fetchFlags();
-  }, []);
+  }, [filteredCountries]);
+
+  if (!filteredCountries.length)
+    return <p>Does this place even exist on Earth?</p>;
 
   const sortFlags = (flags) => {
     let sorted = [...flags];
@@ -39,29 +41,22 @@ const FlagsList = ({ onClick, sortOption, filteredCountries }) => {
     return sorted;
   };
 
-  const applySearchAndSort = () => {
-    const displayFlags =
-      filteredCountries.length > 0 ? filteredCountries : flags;
-    return sortFlags(displayFlags);
-  };
-
   return (
     <div>
-      {error ||
-        (flags.length ? (
-          applySearchAndSort().map((flag, i) => (
-            <FlagCard
-              key={i}
-              name={flag?.name?.common || "Unknown Country"}
-              src={flag?.flags?.png}
-              alt={flag?.flags?.alt || "No Flag Available"}
-              onClick={() => onClick(flag)}
-              flag={flag}
-            />
-          ))
-        ) : (
-          <p>Loading...</p>
-        ))}
+      {filteredCountries.length > 0 ? (
+        sortFlags(filteredCountries).map((flag, i) => (
+          <FlagCard
+            key={i}
+            name={flag?.name?.common || "Unknown Country"}
+            src={flag?.flags?.png}
+            alt={flag?.flags?.alt || "No Flag Available"}
+            onClick={() => onClick(flag)}
+            flag={flag}
+          />
+        ))
+      ) : (
+        <p>Does this place even exist on Earth?</p>
+      )}
     </div>
   );
 };

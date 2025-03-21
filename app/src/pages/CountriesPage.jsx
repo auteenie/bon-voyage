@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAllFlags } from "../adapters/adapters";
 import Button from "../components/Button";
@@ -19,10 +19,22 @@ const sortByMenu = [
 const CountriesPage = () => {
   const navigate = useNavigate();
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [sortOption, setSortOption] = useState("Show All");
   const [filteredCountries, setFilteredCountries] = useState([]);
+  const [allCountries, setAllCountries] = useState([]);
+
+  useEffect(() => {
+    const fetchFlags = async () => {
+      const [data] = await getAllFlags();
+      setAllCountries(data);
+      setFilteredCountries(data);
+    };
+
+    fetchFlags();
+  }, []);
 
   const openModal = (country) => {
     setSelectedCountry(country);
@@ -32,6 +44,18 @@ const CountriesPage = () => {
   const closeModal = () => {
     setIsOpen(false);
     setSelectedCountry(null);
+  };
+
+  const handleSearch = (searchResults) => {
+    if (searchResults.length > 0) {
+      const filtered = allCountries.filter((flag) =>
+        searchResults.some((selected) => selected.value === flag.cca3)
+      );
+
+      setFilteredCountries(filtered);
+    } else {
+      setFilteredCountries(allCountries);
+    }
   };
 
   return (
@@ -47,9 +71,7 @@ const CountriesPage = () => {
 
       <div className="search-filter">
         <h1>List of Countries</h1>
-        <SearchBar
-          onSearch={(searchResults) => setFilteredCountries(searchResults)}
-        />
+        <SearchBar onSearch={handleSearch} />
         <Filter
           menu={sortByMenu}
           onSelect={(option) => setSortOption(option)}
@@ -62,6 +84,7 @@ const CountriesPage = () => {
           sortOption={sortOption}
           filteredCountries={filteredCountries}
         />
+
         <CountryModal
           isOpen={isOpen}
           onClose={closeModal}

@@ -1,50 +1,39 @@
 import { useState, useEffect } from "react";
+import Select from "react-select";
 import { getAllFlags } from "../adapters/adapters";
 
 const SearchBar = ({ onSearch }) => {
-  const [searchItem, setSearchItem] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+  const [selected, setSelected] = useState(null);
 
   useEffect(() => {
     const fetchFlags = async () => {
       const [data] = await getAllFlags();
-      setSuggestions(data);
+      const formattedFlags = data.map((flag) => ({
+        value: flag.cca3,
+        label: flag.name.common,
+      }));
+      setSuggestions(formattedFlags);
     };
 
     fetchFlags();
   }, []);
 
-  const handleSearchChange = (e) => {
-    setSearchItem(e.target.value);
-
-    const filteredSuggestions = suggestions.filter((flag) =>
-      flag.name.common.toLowerCase().includes(e.target.value.toLowerCase())
-    );
-
-    onSearch(filteredSuggestions);
+  const handleSelect = (selected) => {
+    setSelected(selected);
+    onSearch(selected || []);
   };
 
   return (
     <div className="search-bar">
-      <input
-        type="text"
-        name="search"
-        className="search"
-        placeholder="Search for a Country..."
-        value={searchItem}
-        onChange={handleSearchChange}
+      <Select
+        options={suggestions}
+        placeholder="Search for a country..."
+        value={selected}
+        onChange={handleSelect}
+        isSearchable={true}
+        isMulti
       />
-      {searchItem && (
-        <ul className="dropdown-suggestions">
-          {suggestions
-            .filter((flag) =>
-              flag.name.common.toLowerCase().includes(searchItem.toLowerCase())
-            )
-            .map((flag) => (
-              <li key={flag.cca3}>{flag.name.common}</li>
-            ))}
-        </ul>
-      )}
     </div>
   );
 };

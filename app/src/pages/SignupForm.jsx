@@ -1,10 +1,7 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Form from "../components/Form";
 
 const SignupForm = ({ onSubmit }) => {
-  const navigate = useNavigate();
-
   const [signupData, setSignupData] = useState({
     firstName: "",
     lastName: "",
@@ -51,7 +48,7 @@ const SignupForm = ({ onSubmit }) => {
         onChange={handleInputChange}
         required
       />
-  
+
       <label className="signup" aria-label="email">
         Email Address:{" "}
       </label>
@@ -65,7 +62,7 @@ const SignupForm = ({ onSubmit }) => {
         onChange={handleInputChange}
         required
       />
-    
+
       <label className="signup" aria-label="origin country">
         Origin Country:{" "}
       </label>
@@ -79,7 +76,6 @@ const SignupForm = ({ onSubmit }) => {
         onChange={handleInputChange}
         required
       />
-   
     </Form>
   );
 };
