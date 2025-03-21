@@ -3,7 +3,7 @@ import Select from "react-select";
 import { getAllFlags } from "../adapters/adapters";
 
 const SearchBar = ({ onSearch }) => {
-  const [searchItem, setSearchItem] = useState("");
+  // const [searchItem, setSearchItem] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [selected, setSelected] = useState(null);
 
@@ -20,21 +20,20 @@ const SearchBar = ({ onSearch }) => {
     fetchFlags();
   }, []);
 
-  const handleSelect = (selectedOption) => {
-    setSelected(selectedOption);
-    onSearch(selectedOption ? [selectedOption] : []);
+  const handleSelect = (selected) => {
+    setSelected(selected);
+    onSearch(selected || []);
   };
 
   return (
     <div className="search-bar">
       <Select
-        options={suggestions.filter((flag) =>
-          flag.label.toLowerCase().includes(searchItem.toLowerCase())
-        )}
+        options={suggestions}
         placeholder="Search for a country..."
         value={selected}
         onChange={handleSelect}
         isSearchable={true}
+        isMulti
       />
     </div>
   );

@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { getAllFlags } from "../adapters/adapters";
 import Button from "../components/Button";
 import FlagsList from "../components/FlagsList";
 import NavBar from "../components/NavBar";
@@ -23,6 +24,17 @@ const CountriesPage = () => {
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [sortOption, setSortOption] = useState("Show All");
   const [filteredCountries, setFilteredCountries] = useState([]);
+  const [allCountries, setAllCountries] = useState([]);
+
+  useEffect(() => {
+    const fetchFlags = async () => {
+      const [data] = await getAllFlags();
+      setAllCountries(data);
+      setFilteredCountries(data);
+    };
+
+    fetchFlags();
+  });
 
   const openModal = (country) => {
     setSelectedCountry(country);
@@ -35,10 +47,17 @@ const CountriesPage = () => {
   };
 
   const handleSearch = (searchResults) => {
+    console.log("Search Results:", searchResults); // Debugging
+
     if (searchResults.length > 0) {
-      setFilteredCountries(searchResults);
+      const filtered = allCountries.filter((flag) =>
+        searchResults.some((selected) => selected.value === flag.cca3)
+      );
+
+      console.log("Filtered Countries:", filtered); // Debugging
+      setFilteredCountries(filtered);
     } else {
-      setFilteredCountries([]);
+      setFilteredCountries(allCountries); // Reset to all if nothing is selected
     }
   };
 
@@ -68,6 +87,7 @@ const CountriesPage = () => {
           sortOption={sortOption}
           filteredCountries={filteredCountries}
         />
+
         <CountryModal
           isOpen={isOpen}
           onClose={closeModal}
