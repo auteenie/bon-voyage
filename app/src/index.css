@@ -8,25 +8,12 @@
   color-scheme: light dark;
   color: #c9a66b;
   background-color: #f8f5ec;
-
-  /* font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; */
 }
 
 a {
   font-weight: 500;
   color: #092c5b;
   text-decoration: inherit;
-}
-
-body {
-  /* margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh; */
 }
 
 h1 {
@@ -46,31 +33,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-/* button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-} */
 
 nav li {
   display: inline;
   padding: 10px;
 }
-
-/* @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #f8f5ec;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
 
 .passport-form img {
   width: 700px;
@@ -79,7 +46,6 @@ nav li {
   margin-top: -100px;
 }
 
-/* Navigation styles */
 .home-nav {
   display: flex;
   justify-content: space-between;
@@ -97,7 +63,6 @@ nav li {
   gap: 20px;
 }
 
-/* Content layout */
 .home-content {
   display: flex;
   justify-content: space-between;
@@ -142,26 +107,23 @@ nav li {
   display: flex;
   flex-direction: column;
   gap: 7px;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .form input {
-  padding: 8px;
-  margin-bottom: 0.5em;
-  font-size: 1.6em;
-  border-radius: 8px;
+  padding: 10px;
   border: 1px solid #c9a66b;
-  width: 150%;
-  max-width: 400px;
-  color: #0b1f3a;
-  font-family: "Instrument Serif", serif;
-  font-style: italic;
-  outline-color: #0b1f3a;
-  letter-spacing: 1.5px;
+  border-radius: 5px;
+  font-size: 1.2em;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .form label {
-  font-size: 1.6em;
-  margin-bottom: 5px;
+  font-size: 1.2em;
+  margin-top: 10px;
 }
 
 .form input::placeholder {
@@ -257,38 +219,9 @@ nav li {
   }
 }
 
-@media screen and (max-width: 768px) {
-  .modal-content {
-    min-width: 90%;
-    max-width: 95%;
-    padding: 1.5rem;
-    margin: 1rem;
-  }
-
-  .modal-content img {
-    min-height: 200px;
-  }
-
-  .modal-content li {
-    font-size: 1rem;
-  }
-
-  .modal-content h1 {
-    font-size: 2rem;
-  }
-
-  .modal-content button {
-    font-size: 1.2rem;
-    top: 0.5rem;
-    right: 0.5rem;
-  }
-}
-
-/* Add this to your existing CSS */
 .flags-list > div {
-  /* Target the div containing all FlagCards */
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns by default */
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   padding: 2rem;
   max-width: 1400px;
@@ -325,13 +258,13 @@ nav li {
     245,
     236,
     0.25
-  ); /* Using your site's background color with transparency */
+  );
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  -webkit-backdrop-filter: blur(10px);
   padding: 0.5rem 2rem;
   border-radius: 25px;
-  border: 1px solid rgba(201, 166, 107, 0.18); /* Subtle border using your accent color */
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border: 1px solid rgba(201, 166, 107, 0.18);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .countries-nav {
@@ -393,9 +326,9 @@ nav li {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 400px;  /* Standard passport height */
-  width: 280px;   /* Standard passport width */
-  margin: 0 auto; /* Center the passport */
+  height: 400px;
+  width: 280px;
+  margin: 0 auto;
   background-color: #0b1f3a;
   color: #c9a66b;;
   transition: transform 0.5s ease;
@@ -479,13 +412,6 @@ nav li {
   }
 }
 
-@media screen and (max-width: 768px) {
-  .flags-list > div {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 1rem;
-  }
-}
 
 .no-countries {
   font-size: 4rem;
@@ -503,7 +429,7 @@ nav li {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1200px;  /* Adjust based on your needs */
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -574,3 +500,148 @@ nav li {
   text-decoration: underline;
   margin: 0 1rem;
 }
+
+@media screen and (max-width: 768px) {
+  .appName {
+    font-size: 2.5rem; 
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  button {
+    font-size: 1.2em;
+    padding: 0.1em 1em;
+  }
+
+  .home-nav {
+    padding: 10px 20px;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-right {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  nav li {
+    padding: 5px;
+  }
+
+  .home-content {
+    flex-direction: column;
+    padding: 20px;
+    gap: 30px;
+  }
+
+  .home-intro {
+    padding-right: 0;
+  }
+
+  .home-intro p {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .passport-section {
+    width: 100%;
+  }
+
+  .passport-cover {
+    max-width: 100%;
+  }
+
+  .passport-form img {
+    width: 100%;
+    margin-top: -50px;
+  }
+
+  .form {
+    width: 90%;
+    padding: 15px;
+    gap: 5px;
+  }
+
+  .form input {
+    font-size: 1em;
+    padding: 8px;
+  }
+
+  .form label {
+    font-size: 1em;
+  }
+
+  .form button {
+    font-size: 1.2em;
+    padding: 8px 16px;
+    margin-top: 15px;
+  }
+
+  .modal-content {
+    width: 90%;
+    padding: 15px;
+    margin: 20px auto;
+  }
+
+  .passport-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .passport-form img {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: -30px;
+  }
+
+  .stamp-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .stamp {
+    width: 100%;
+    height: auto;
+  }
+
+  .flags-list > div {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .modal-content {
+    min-width: 90%;
+    max-width: 95%;
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  .modal-content img {
+    min-height: 200px;
+  }
+
+  .modal-content li {
+    font-size: 1rem;
+  }
+
+  .modal-content h1 {
+    font-size: 2rem;
+  }
+
+  .modal-content button {
+    font-size: 1.2rem;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+}
+
+
