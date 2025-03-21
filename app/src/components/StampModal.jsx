@@ -39,7 +39,7 @@ const StampModal = ({ isOpen, onClose, country, origin }) => {
         <textarea />
       </div>
 
-      <Button name="View Photo Album" />
+      {/* <Button name="View Photo Album" /> */}
     </dialog>
   );
 };
