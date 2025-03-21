@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import Button from "../components/Button";
+import ThemeToggle from "../components/ThemeToggle";
 
 const Homepage = () => {
   const [activeForm, setActiveForm] = useState(null);
@@ -47,6 +48,7 @@ const Homepage = () => {
           <Link to="/" className="appName">bon voyage</Link>
         </div>
         <div className="nav-right">
+          <ThemeToggle />
           <Button name={"Login"} onClick={() => handleClick("login")} />
           <Button name={"Sign Up"} onClick={() => handleClick("signup")} />
         </div>

@@ -18,11 +18,16 @@ const PassportPage = () => {
   const stampsPerPage = 6;
   const totalPages = Math.ceil(stampsArray.length / (stampsPerPage * 2));
 
-  console.log("URL ID:", userID);
-  console.log("Does this match current user?", currentUser.id === userID);
-
   useEffect(() => {
-    if (!currentUser || currentUser.id !== userID) {
+    if (!currentUser) {
+      navigate('/');
+      return;
+    }
+
+    console.log("URL ID:", userID);
+    console.log("Does this match current user?", currentUser.id === userID);
+
+    if (currentUser.id !== userID) {
       navigate('/');
     }
   }, [currentUser, userID, navigate]);

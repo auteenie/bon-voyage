@@ -8,25 +8,12 @@
   color-scheme: light dark;
   color: #c9a66b;
   background-color: #f8f5ec;
-
-  /* font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; */
 }
 
 a {
   font-weight: 500;
   color: #092c5b;
   text-decoration: inherit;
-}
-
-body {
-  /* margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh; */
 }
 
 h1 {
@@ -573,4 +560,18 @@ nav li {
   color: #c9a66b;
   text-decoration: underline;
   margin: 0 1rem;
+}
+
+.theme-toggle {
+  background-color: transparent;
+  border: 2px solid #c9a66b;
+  color: #c9a66b;
+  font-size: 1.2rem;
+  padding: 0.5em 1em;
+  margin-left: 1rem;
+}
+
+.theme-toggle:hover {
+  background-color: #c9a66b;
+  color: #f8f5ec;
 }
