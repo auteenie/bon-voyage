@@ -269,21 +269,37 @@ nav li {
 
 .countries-nav {
   display: flex;
+  justify-content: flex-start;
   padding: 20px 40px;
   width: 100%;
 }
 
 .countries-nav ul {
   display: flex;
-  width: 100%;
+  align-items: center;
   justify-content: space-between;
+  gap: 15px;
+  list-style: none;
+  padding: 20px 40px;
   margin: 0;
-  padding: 0 20px;
+  width: 100%;
 }
 
 .search-filter {
   text-align: center;
+  padding: 40px 0;
+}
+
+.search-filter h1 {
+  font-size: 4.5rem;
+  margin: 40px auto;
   color: #0b1f3a;
+  letter-spacing: 2px;
+  position: relative;
+  display: inline-block;
+  padding: 20px 40px;
+  
+  border-radius: 8px;
 }
 
 .search-filter input {
@@ -393,15 +409,6 @@ nav li {
 
 .move-right {
   color: #0b1f3a;
-}
-
-.search-filter h1 {
-  margin-bottom: 50px;
-  letter-spacing: 1.5px;
-  background-color: rgba(201, 166, 107, 0.5);
-  padding: 20px 20px;
-  border-radius: 5px;
-  width: fit-content;
 }
 
 @media screen and (max-width: 1024px) {
