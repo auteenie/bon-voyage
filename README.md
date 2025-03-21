@@ -20,10 +20,8 @@ This application will use the **REST Countries** API. Below are the documentatio
 - API endpoint #3: https://rough-sun-2523.fly.dev/visa/{passport-country-code}/{destination-country-code}
   - This endpoint retrieves visa requirements between two countries.
   - The data would show the passport country's name and code, destination country's name and code, and visa requirement.
-- Extra Credit API endpoint #4: https://restcountries.com/v3.1/name/${country-name}?fields=cca2
-  - The data would show the country's code.
-
-[If your API requires an API key, say so here.]
+- API endpoint #4: https://restcountries.com/v3.1/name/{country-name}?fields={prop-or-list-of-props}
+  - The data would show the country's code. This makes it easier to filter out the data we needed.
 
 ## 👩‍💻 MVP User Stories & Frontend Routes
 
