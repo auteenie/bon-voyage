@@ -3,7 +3,6 @@ import Select from "react-select";
 import { getAllFlags } from "../adapters/adapters";
 
 const SearchBar = ({ onSearch }) => {
-  // const [searchItem, setSearchItem] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [selected, setSelected] = useState(null);
 

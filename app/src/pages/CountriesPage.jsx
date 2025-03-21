@@ -34,7 +34,7 @@ const CountriesPage = () => {
     };
 
     fetchFlags();
-  });
+  }, []);
 
   const openModal = (country) => {
     setSelectedCountry(country);
@@ -47,17 +47,14 @@ const CountriesPage = () => {
   };
 
   const handleSearch = (searchResults) => {
-    console.log("Search Results:", searchResults); // Debugging
-
     if (searchResults.length > 0) {
       const filtered = allCountries.filter((flag) =>
         searchResults.some((selected) => selected.value === flag.cca3)
       );
 
-      console.log("Filtered Countries:", filtered); // Debugging
       setFilteredCountries(filtered);
     } else {
-      setFilteredCountries(allCountries); // Reset to all if nothing is selected
+      setFilteredCountries(allCountries);
     }
   };
 
