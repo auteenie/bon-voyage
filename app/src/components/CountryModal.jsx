@@ -23,7 +23,6 @@ const CountryModal = ({ isOpen, onClose, country }) => {
     fetch();
   }, [country]);
 
-  console.log("Modal country data:", country); // Debug the data structure
   if (!isOpen || !country) return null;
 
   return (
