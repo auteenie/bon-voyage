@@ -269,21 +269,37 @@ nav li {
 
 .countries-nav {
   display: flex;
+  justify-content: flex-start;
   padding: 20px 40px;
   width: 100%;
 }
 
 .countries-nav ul {
   display: flex;
-  width: 100%;
+  align-items: center;
   justify-content: space-between;
+  gap: 15px;
+  list-style: none;
+  padding: 20px 40px;
   margin: 0;
-  padding: 0 20px;
+  width: 100%;
 }
 
 .search-filter {
   text-align: center;
+  padding: 40px 0;
+}
+
+.search-filter h1 {
+  font-size: 4.5rem;
+  margin: 40px auto;
   color: #0b1f3a;
+  letter-spacing: 2px;
+  position: relative;
+  display: inline-block;
+  padding: 20px 40px;
+  
+  border-radius: 8px;
 }
 
 .search-filter input {
@@ -395,15 +411,6 @@ nav li {
   color: #0b1f3a;
 }
 
-.search-filter h1 {
-  margin-bottom: 50px;
-  letter-spacing: 1.5px;
-  background-color: rgba(201, 166, 107, 0.5);
-  padding: 20px 20px;
-  border-radius: 5px;
-  width: fit-content;
-}
-
 @media screen and (max-width: 1024px) {
   .flags-list > div {
     grid-template-columns: repeat(2, 1fr);
@@ -444,39 +451,29 @@ nav li {
   transform: scale(2.2);
 }
 
-.stamp-modal {
+.stamp-modal-overlay {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  color: #f9f7f4;
+}
+
+.stamp-modal {
   background-color: #0b1f3a;
   padding: 2rem;
   border-radius: 12px;
-  border: none;
   width: 80%;
   max-width: 800px;
   max-height: 90vh;
   overflow-y: auto;
-
-}
-
-.stamp-modal .heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid #c9a66b;
-}
-
-.stamp-modal h1 {
-  color: #f9f7f4 ;
-  margin: 0;
-}
-
-.stamp-modal h3 {
-  color: #f9f7f4;
-  margin-top: 1.5rem;
+  color: #f8f5ec;
 }
 
 .stamp-modal textarea {
@@ -489,16 +486,32 @@ nav li {
   font-size: 1.1em;
   resize: vertical;
   margin-top: 0.5rem;
+  background-color: #f8f5ec;
 }
 
-.stamp-modal .notes {
-  margin-bottom: 2rem;
+.stamp-modal h1,
+.stamp-modal h2,
+.stamp-modal h3,
+.stamp-modal p {
+  color: #f8f5ec;
 }
 
 .stamp-modal a {
   color: #c9a66b;
   text-decoration: underline;
   margin: 0 1rem;
+}
+
+.stamp-modal .notes {
+  margin-bottom: 2rem;
+}
+
+.stamp-modal .heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  margin-bottom: 2rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -644,4 +657,57 @@ nav li {
   }
 }
 
+@media screen and (min-width: 768px) and (max-width: 940px) {
+  .open-passport {
+    max-width: 95%;
+  }
 
+  .passport-page {
+    width: 100%;
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .stamp {
+    width: 100px;
+    height: 100px;
+  }
+
+  .arrow-container {
+    padding: 0 10px;
+  }
+
+  .arrow {
+    transform: scale(0.8);
+  }
+
+  .arrow:hover {
+    transform: scale(0.9);
+  }
+}
+
+.welcome-text {
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 2rem;
+  font-size: 4.5rem;
+}
+
+.profile-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.profile-nav ul {
+  display: flex;  
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  list-style: none;
+  padding: 20px 40px;
+  margin: 0;
+  width: 100%;
+}

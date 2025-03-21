@@ -66,15 +66,15 @@ const PassportPage = () => {
   return (
     <main className="profile">
       <NavBar className="profile-nav">
-        <li>
+        <div className="nav-content">
           <Button
             name="View Countries"
             onClick={() => navigate("/pages/CountriesPage")}
           />
-        </li>
-
-        <h1>Welcome, {currentUser?.firstName}!</h1>
+        </div>
       </NavBar>
+
+      <h1 className="welcome-text">Welcome, {currentUser?.firstName}!</h1>
 
       <section className="passport-container">
         {!isOpen ? (
