@@ -70,8 +70,8 @@ To ensure that we can complete all core features of the application in 1 week, w
 
 **Day 5**
 - [ ] Deploy GitHub page of the project due March 20, 2025
-- [ ] Agile Reflection due March 20, 2025
 - [ ] Creating presentation slides due March 20, 2025
+- [ ] Agile Reflection due April 1, 2025
 
 ## 🖼️ Wireframes of each page in your application
 
