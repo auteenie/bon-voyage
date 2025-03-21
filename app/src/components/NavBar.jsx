@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
 import Button from "./Button";
-import ThemeToggle from './ThemeToggle';
+import ThemeToggle from "./ThemeToggle";
 
 const NavBar = ({ children, className }) => {
   return (
