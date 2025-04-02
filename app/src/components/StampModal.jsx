@@ -72,14 +72,14 @@ const StampModal = ({ isOpen, onClose, country, origin, onVisitedChange }) => {
           <textarea />
         </div>
 
-      {/* <PassportToDestination country={country} origin={origin} /> */}
+        <PassportToDestination country={country} origin={origin} />
 
         <div className="notes">
           <h3>Notes:</h3>
           <textarea />
         </div>
 
-      {/* <Button name="View Photo Album" /> */}
+        {/* <Button name="View Photo Album" /> */}
       </div>
     </dialog>
   );
