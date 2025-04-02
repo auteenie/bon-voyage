@@ -5,12 +5,14 @@ import NavBar from "../components/NavBar";
 import StampModal from "../components/StampModal";
 import { Earth, ArrowLeft, ArrowRight } from "lucide-react";
 import stamps from "../stamps.js";
+import Stamp from '../components/Stamp';
 
 const PassportPage = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [visitedCountries, setVisitedCountries] = useState([]);
 
   const navigate = useNavigate();
   const { userID } = useParams();
@@ -31,6 +33,9 @@ const PassportPage = () => {
     if (currentUser.id !== userID) {
       navigate("/");
     }
+
+    const visited = JSON.parse(localStorage.getItem('visitedCountries') || '[]');
+    setVisitedCountries(visited);
   }, [currentUser, userID, navigate]);
 
   const handlePrevPage = () => {
@@ -41,22 +46,31 @@ const PassportPage = () => {
     setCurrentPage((prev) => Math.min(totalPages * 2 - 2, prev + 2));
   };
 
+  const handleVisitedChange = (isVisited) => {
+    const visited = JSON.parse(localStorage.getItem('visitedCountries') || '[]');
+    setVisitedCountries(visited);
+  };
+
   const renderStamps = (pageIndex) => {
     const startIdx = pageIndex * stampsPerPage;
     const pageStamps = stampsArray.slice(startIdx, startIdx + stampsPerPage);
 
     return (
       <div className="passport-page">
-        {pageStamps.map(([country, stampSrc]) => (
-          <div
-            key={country}
+        {pageStamps.map(([country, stampSrc], idx) => (
+          <div 
+            key={country} 
             className="stamp-container"
             onClick={() => {
               setSelectedCountry(country);
               setIsModalOpen(true);
             }}
           >
-            <img className="stamp" src={stampSrc} alt={`${country} stamp`} />
+            <Stamp 
+              country={country} 
+              stampSrc={stampSrc} 
+              isVisited={visitedCountries.includes(country)}
+            />
           </div>
         ))}
       </div>
@@ -104,6 +118,7 @@ const PassportPage = () => {
           onClose={() => setIsModalOpen(false)}
           country={selectedCountry}
           origin={currentUser?.country}
+          onVisitedChange={handleVisitedChange}
         />
       </section>
     </main>

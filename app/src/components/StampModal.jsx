@@ -1,7 +1,34 @@
+import { useState, useEffect } from "react";
 import Button from "./Button";
 import PassportToDestination from "./PassportToDestination";
 
-const StampModal = ({ isOpen, onClose, country, origin }) => {
+const StampModal = ({ isOpen, onClose, country, origin, onVisitedChange }) => {
+  const [isVisited, setIsVisited] = useState(false);
+
+  useEffect(() => {
+    if (country) {
+      const visitedCountries = JSON.parse(localStorage.getItem('visitedCountries') || '[]');
+      setIsVisited(visitedCountries.includes(country));
+    }
+  }, [country]);
+
+  const handleVisitedToggle = () => {
+    const visitedCountries = JSON.parse(localStorage.getItem('visitedCountries') || '[]');
+    
+    if (isVisited) {
+      const newVisited = visitedCountries.filter(c => c !== country);
+      localStorage.setItem('visitedCountries', JSON.stringify(newVisited));
+    } else {
+      visitedCountries.push(country);
+      localStorage.setItem('visitedCountries', JSON.stringify(visitedCountries));
+    }
+    
+    setIsVisited(!isVisited);
+    if (onVisitedChange) {
+      onVisitedChange(!isVisited);
+    }
+  };
+
   if (!isOpen) return null;
 
   return (
@@ -15,6 +42,16 @@ const StampModal = ({ isOpen, onClose, country, origin }) => {
       <div className="stamp-modal">
         <div className="heading">
           <h1>{country}</h1>
+          <div className="visited-checkbox">
+            <label>
+              <input
+                type="checkbox"
+                checked={isVisited}
+                onChange={handleVisitedToggle}
+              />
+              Visited
+            </label>
+          </div>
           <a
             href={`https://www.google.com/maps/search/${country}`}
             target="_blank"

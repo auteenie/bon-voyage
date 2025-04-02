@@ -392,6 +392,35 @@ nav li {
   width: 120px;
   height: 120px;
   object-fit: contain;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.stamp.visited {
+  filter: grayscale(0%);
+}
+
+.visited-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 1rem;
+}
+
+.visited-checkbox label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #f8f5ec;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.visited-checkbox input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #c9a66b;
 }
 
 .open-button {
